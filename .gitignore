@@ -1,0 +1,55 @@
+# Python caches and local environments
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+.ipynb_checkpoints/
+
+# Local editors and operating systems
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+secrets/
+
+# Raw / processed datasets and large feature arrays
+/data/
+*.h5
+*.hdf5
+*.npy
+*.npz
+*.parquet
+
+# Model weights, run output, and compute logs
+/artifacts/
+/checkpoints/
+/runs/
+/results/
+/outputs/
+*.pt
+*.pth
+*.ckpt
+*.pkl
+*.joblib
+*.log
+slurm-*.out
+wandb/
+mlruns/
+
+# Scratch work
+/tmp/
+/temp/
