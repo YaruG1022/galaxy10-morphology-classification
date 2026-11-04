@@ -1,6 +1,6 @@
 # Research roadmap
 
-This schedule is carried forward from the October 7, 2026 proposal. All analytical stages are pending; repository creation does not imply completion of data preparation.
+This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 and training-only data-level exploration were completed on November 3, 2026. Hand-crafted feature extraction, representation-based exploration, model training, and performance results remain pending.
 
 | Planned dates (2026) | Stage | Expected deliverable | Initial lead |
 | --- | --- | --- | --- |
@@ -22,11 +22,14 @@ This schedule is carried forward from the October 7, 2026 proposal. All analytic
 
 ## Current status
 
-- [x] Private GitHub repository and main branch.
+- [x] Repository and main branch.
 - [x] Planning documents, ignore rules, and collaboration templates.
-- [ ] Compute environment and data acquisition.
-- [ ] Data inspection, duplicate checks, and saved split.
-- [ ] Feature extraction, models, evaluation, and experiments.
+- [x] Local data-only dependencies and verified data acquisition.
+- [x] Data inspection, documented visual duplicate review, cleaning manifest, and frozen v1 split.
+- [ ] Kamiak environment, data transfer, and compute access verification.
+- [x] Training-only data-level exploration: seven reviewed figures, English interpretations, aggregate tables, executed notebook, and independent checks.
+- [ ] Hand-crafted feature extraction and feature/pretrained-representation UMAP plots.
+- [ ] Models, evaluation, and experiments.
 - [ ] Results, interpretation, report, and slides.
 
-No model code, notebooks, dependency locks, data, checkpoints, or analytical results are included in this setup.
+Data preparation and exploratory scripts, pinned data/EDA dependencies, frozen metadata, and an executed exploration notebook are present. See [the EDA record](eda/README.md). Raw data and caches remain local and ignored. No hand-crafted feature table, model-training code, checkpoint, or model-performance result is present.

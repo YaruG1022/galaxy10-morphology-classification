@@ -2,7 +2,7 @@
 
 Compare hand-crafted image features, a convolutional neural network (CNN) trained from scratch, and pretrained CNNs and vision transformers on the ten-class Galaxy10 DECaLS dataset.
 
-**Status: planning and repository setup only.** No data has been downloaded, no analytical code has been implemented, and no experiments or results are available.
+**Status: data preparation v1 and training-only exploratory analysis completed on November 3, 2026.** The verified raw release has 17,675 images; cleaning retains 17,655. Frozen split records are under `metadata/data_v1/`. [Exploratory findings and seven figures](docs/eda/README.md) use training images only; [the executed notebook](notebooks/01_exploration.ipynb) reproduces them. Hand-crafted feature extraction, model training, and performance evaluation remain pending.
 
 ## Research questions
 
@@ -24,7 +24,7 @@ A majority-class baseline is an additional sanity check and is excluded from the
 
 ## Shared evaluation plan
 
-Use the deduplicated dataset, check for remaining duplicates, then save one stratified 70/15/15 training/validation/test split. All models use the same split. Macro F1 is the primary metric; deep models have three planned training seeds. These are planned procedures, not completed work.
+Use the frozen original-row indices under `metadata/data_v1/` for every model. The saved split contains 12,359 training, 2,650 validation, and 2,646 test images. Integer per-class allocation gives approximately 70/15/15. Keep the test set closed during model selection. Macro F1 is the planned primary metric; three training seeds per deep model remain to be chosen. Duplicate screening has documented limits; see [the data record](docs/DATA.md).
 
 See [the experiment plan](docs/EXPERIMENT_PLAN.md) for evaluation safeguards and target criteria.
 
@@ -40,7 +40,39 @@ See [the experiment plan](docs/EXPERIMENT_PLAN.md) for evaluation safeguards and
 | [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) | Task and experiment templates |
 | [.gitignore](.gitignore) | Rules for local environments, secrets, datasets, and model artifacts |
 
-Implementation directories will be added when implementation begins. There are no installation or training commands yet.
+## Local data preparation
+
+Use Python 3.12 and the data-only dependencies in `requirements-data.txt`:
+
+```powershell
+python -m pip install -r requirements-data.txt
+python check_data.py
+python validate_data_preparation.py
+```
+
+`check_data.py` audits the unchanged raw file and will still flag its recorded issues. `validate_data_preparation.py` verifies the cleaned sample manifest, source checksum, saved partitions, and known-candidate separation.
+
+- `prepare_data.py`: reproducible image screening and reviewed split construction.
+- `metadata/data_v1/sample_manifest.csv`: all original row indices, labels, exclusions, metadata flags, and partition membership.
+- `metadata/data_v1/{train,validation,test}_indices.json`: the indices all team members must load.
+- `metadata/data_v1/review_decisions.json`: exclusions and visual review provenance.
+- `metadata/data_v1/summary.json`: counts, seed, file hashes, and screening limitations.
+- `data/processed/preparation_v1/`: ignored thumbnail cache and visual review sheets; source data remain in `data/raw/`.
+
+The v1 split is frozen: `prepare_data.py` refuses to overwrite a completed version. Recreate screening in a different output/cache directory using `--scan-only`, record review decisions there, then use `--finalize`. Model training commands will be added when those modules exist.
+
+## Exploratory analysis
+
+```powershell
+python -m pip install -r requirements-eda.txt
+python eda.py
+python validate_eda.py
+python -m unittest discover -s tests -v
+```
+
+Open `notebooks/01_exploration.ipynb` for the executed walkthrough. The [English exploratory record](docs/eda/README.md) includes class balance, four training examples per class, class-average images, stored-pixel distributions, and redshift/pixel-scale context. Small aggregate tables and curated PNG/SVG figures are tracked under `docs/eda/`; per-image diagnostics and caches remain ignored under `data/processed/eda_v1/`.
+
+All image-derived exploration uses the 12,359 training rows. Full retained class counts come from the frozen manifest. The held-out images do not enter the exploratory statistics or gallery. No model performance or CNN-versus-transformer conclusion is reported. Feature-representation UMAP comparisons will be added with the relevant feature/model modules.
 
 ## Team
 
@@ -59,4 +91,4 @@ Dataset attribution and its separate license are described in [docs/DATA.md](doc
 
 ## Planning source
 
-The plan is based on the team's revised research proposal dated October 7, 2026. Original source documents are retained locally and are not uploaded here. Repository setup and document organization were assisted by Codex; the team will carry out and verify the analytical work.
+The plan is based on the team's revised research proposal dated October 7, 2026. Original source documents are retained locally and are not uploaded here. Repository setup, data preparation, the recorded visual screening, and the exploratory scripts/figures/notebook were assisted by Codex. The records identify this provenance; independent team confirmation has not been recorded. The team must understand and independently verify the decisions and interpretations.

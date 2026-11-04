@@ -1,0 +1,102 @@
+{
+  "status": "data_preparation_complete_with_documented_limits",
+  "seed": 42,
+  "raw_count": 17675,
+  "included_count": 17655,
+  "excluded_count": 20,
+  "included_class_counts": [
+    1080,
+    1844,
+    2640,
+    2021,
+    333,
+    2039,
+    1821,
+    2597,
+    1417,
+    1863
+  ],
+  "split": {
+    "train": {
+      "count": 12359,
+      "fraction": 0.7000283205890683,
+      "class_counts": [
+        756,
+        1291,
+        1848,
+        1415,
+        233,
+        1427,
+        1275,
+        1818,
+        992,
+        1304
+      ]
+    },
+    "validation": {
+      "count": 2650,
+      "fraction": 0.1500991220617389,
+      "class_counts": [
+        162,
+        277,
+        396,
+        303,
+        50,
+        306,
+        273,
+        390,
+        213,
+        280
+      ]
+    },
+    "test": {
+      "count": 2646,
+      "fraction": 0.14987255734919286,
+      "class_counts": [
+        162,
+        276,
+        396,
+        303,
+        50,
+        306,
+        273,
+        389,
+        212,
+        279
+      ]
+    }
+  },
+  "target_ratios": [
+    0.7,
+    0.15,
+    0.15
+  ],
+  "allocation": "Per-class largest-remainder integer quotas; group members assigned together, then singletons fill quotas. Ties prefer train, validation, test.",
+  "candidate_pairs": 18,
+  "protected_multi_sample_groups": 0,
+  "largest_group": 1,
+  "candidate_pairs_crossing_splits": 0,
+  "original_index_convention": "Zero-based row number in verified raw HDF5; never renumber after exclusions",
+  "raw_md5": "a920094d5e470e3705f4691c0d6dff54",
+  "manifest_sha256": "137e910f026a733867a619933f9db37b5d5b1c42a2a1cc7f590973ee369c3c9d",
+  "artifact_sha256": {
+    "duplicate_candidates.csv": "7ccd856816d6654119a812bcdf9b4a4bdc87a23f72e8ab7b95558313b48860c5",
+    "image_screen_assessment.csv": "e92832e2c0acccecd930390e3cc04a8d43ea9e7da349e7307440413faa92e1a7",
+    "initial_screen_matches.csv": "20a31734bc2d75b08e6b73ec25bdc816f353c31ebfa2f94d3c238a57e15b8128",
+    "review_decisions.json": "8b7927d0d8270f59024e8ee36b5e83103516ddcd779eac77dd57727dfa70cc7b",
+    "sample_manifest.csv": "137e910f026a733867a619933f9db37b5d5b1c42a2a1cc7f590973ee369c3c9d",
+    "scan.json": "23e765ea567e32cad6b095d147ea60da81069538019ad5378c080ead881e4da6",
+    "test_indices.json": "c6799655dffbed267c90dd7a3020b911c9386f462d452a0fbd3e44a6e6841b57",
+    "train_indices.json": "e24dba26fc337f6ebdfedabe99ab94e11c758231f9483f409c477c131417b8f1",
+    "validation_indices.json": "710f2ec68a0320022ab98f1b58cca48357118097079da5244b5b8cda8f0711f9"
+  },
+  "reviewer": "Codex visual inspection of all 18 candidate pairs on 2026-11-03; no independent team confirmation recorded",
+  "script_sha256": "2e5aa4b714f38b618864ed80bd54c265b27d040ea045478a1d79beae56c1ae35",
+  "remaining_limits": [
+    "Finite thresholds cannot prove that all near-duplicates have been found.",
+    "pHash can match different smooth galaxies; candidates are not automatically deleted.",
+    "Orientation screening covers rotations by multiples of 90 degrees and flips; it is not invariant to arbitrary crops.",
+    "Hash-only matches must also pass aligned-thumbnail correlation, RMSE and dHash thresholds; weak hash-only matches remain recorded but are not grouped. These screening thresholds are engineering choices, not calibrated duplicate probabilities."
+  ],
+  "no_training_statistics_fitted": true
+}

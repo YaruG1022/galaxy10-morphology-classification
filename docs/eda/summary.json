@@ -1,0 +1,209 @@
+{
+  "created_at_utc": "2026-11-04T00:58:21.086395+00:00",
+  "scope": "training_images_only",
+  "training_count": 12359,
+  "retained_count": 17655,
+  "gallery_seed": 20261103,
+  "example_indices": {
+    "0": [
+      201,
+      320,
+      935,
+      938
+    ],
+    "1": [
+      1255,
+      1358,
+      2806,
+      2863
+    ],
+    "2": [
+      3362,
+      3458,
+      4704,
+      5312
+    ],
+    "3": [
+      6081,
+      6479,
+      7104,
+      7294
+    ],
+    "4": [
+      7600,
+      7686,
+      7734,
+      7829
+    ],
+    "5": [
+      9087,
+      9304,
+      9475,
+      9498
+    ],
+    "6": [
+      10438,
+      10872,
+      11176,
+      11756
+    ],
+    "7": [
+      12079,
+      12976,
+      13136,
+      13490
+    ],
+    "8": [
+      14844,
+      14912,
+      15082,
+      15653
+    ],
+    "9": [
+      16009,
+      16422,
+      17431,
+      17575
+    ]
+  },
+  "retained_imbalance_ratio": 7.927927927927928,
+  "training_redshift_missing": 64,
+  "training_redshift_negative": 1,
+  "training_redshift_zero": 1,
+  "class_counts": [
+    {
+      "class_id": 0,
+      "class_name": "Disturbed",
+      "train": 756,
+      "validation": 162,
+      "test": 162,
+      "retained": 1080
+    },
+    {
+      "class_id": 1,
+      "class_name": "Merging",
+      "train": 1291,
+      "validation": 277,
+      "test": 276,
+      "retained": 1844
+    },
+    {
+      "class_id": 2,
+      "class_name": "Round Smooth",
+      "train": 1848,
+      "validation": 396,
+      "test": 396,
+      "retained": 2640
+    },
+    {
+      "class_id": 3,
+      "class_name": "In-between Round Smooth",
+      "train": 1415,
+      "validation": 303,
+      "test": 303,
+      "retained": 2021
+    },
+    {
+      "class_id": 4,
+      "class_name": "Cigar-Shaped Smooth",
+      "train": 233,
+      "validation": 50,
+      "test": 50,
+      "retained": 333
+    },
+    {
+      "class_id": 5,
+      "class_name": "Barred Spiral",
+      "train": 1427,
+      "validation": 306,
+      "test": 306,
+      "retained": 2039
+    },
+    {
+      "class_id": 6,
+      "class_name": "Unbarred Tight Spiral",
+      "train": 1275,
+      "validation": 273,
+      "test": 273,
+      "retained": 1821
+    },
+    {
+      "class_id": 7,
+      "class_name": "Unbarred Loose Spiral",
+      "train": 1818,
+      "validation": 390,
+      "test": 389,
+      "retained": 2597
+    },
+    {
+      "class_id": 8,
+      "class_name": "Edge-on without Bulge",
+      "train": 992,
+      "validation": 213,
+      "test": 212,
+      "retained": 1417
+    },
+    {
+      "class_id": 9,
+      "class_name": "Edge-on with Bulge",
+      "train": 1304,
+      "validation": 280,
+      "test": 279,
+      "retained": 1863
+    }
+  ],
+  "source_key": {
+    "source_md5": "a920094d5e470e3705f4691c0d6dff54",
+    "manifest_sha256": "137e910f026a733867a619933f9db37b5d5b1c42a2a1cc7f590973ee369c3c9d",
+    "train_indices_sha256": "e24dba26fc337f6ebdfedabe99ab94e11c758231f9483f409c477c131417b8f1",
+    "script_sha256": "d21f77ab5e56d7d63225c4b1fc8c2992c4475603d0787e934de7c84dc83ee8ff",
+    "gallery_seed": 20261103
+  },
+  "input_validation": {
+    "raw_count": 17675,
+    "retained": 17655,
+    "excluded": 20,
+    "split_counts": {
+      "train": 12359,
+      "validation": 2650,
+      "test": 2646
+    },
+    "candidate_pairs_checked": 18,
+    "overlap": 0,
+    "candidate_leakage": 0,
+    "all_recorded_hashes_match": true
+  },
+  "versions": {
+    "python": "3.12.4",
+    "numpy": "2.2.6",
+    "h5py": "3.16.0",
+    "matplotlib": "3.10.7"
+  },
+  "statistics_definitions": {
+    "intensity": "Mean of all stored pixel-channel values / 255",
+    "spatial_std": "Population std of per-pixel channel averages / 255",
+    "channel_differences": "Differences of normalized stored-channel means; not calibrated astronomical colors"
+  },
+  "dataset_license": "CC-BY-4.0",
+  "license_verified_from": "https://zenodo.org/api/records/10845026",
+  "test_images_analyzed": 0,
+  "model_training_performed": false,
+  "feature_estimators_fitted": false,
+  "output_sha256": {
+    "figures/class_balance.png": "ce42bbad5f8b8f6aa64d1053788fa3710188e80fdf8527fcc58b388cd9ebec35",
+    "figures/class_balance.svg": "b6cef613b101c522ef42702a1226c0c705e52fad0fc30ba59e7b1162d981fc87",
+    "figures/training_channel_differences.png": "8e6b981d405277af54ab4339c96751f0f779320eb6fff862cac337fce20c339d",
+    "figures/training_channel_differences.svg": "5753d227c7d765da9cd11dea17e49dcadbcd977e195737e24039494461994f40",
+    "figures/training_class_means.png": "3764ab700f94ba9091cf390f5e8144992bd4011282651c87be7bef2cdf0f400b",
+    "figures/training_examples_classes_0_4.png": "e0242fe2847813b12d480d9c58672fb3f5b83d952af253eb56daf274b6f3a607",
+    "figures/training_examples_classes_5_9.png": "76e0154a4ba1c2d3fa62b128bf992e6fceb1f7bcd30d5ec29b89d5e947d73780",
+    "figures/training_intensity.png": "179381c1e47bc97b42548d7ecf0c2fdab9592ca4342496b3c1ab438baf162257",
+    "figures/training_intensity.svg": "a820b295c1a02cd7a0b8959acc1f9b2b72f257f1a89faf563ff66dda5e952b1d",
+    "figures/training_metadata.png": "da520c42b35bc32a5acec4d6d41b3fa70ea58aac4f3071657d3f386151ef802d",
+    "figures/training_metadata.svg": "f60e9af8f0b79fc611ba120036fb27e8182a1b620610ce2f6a127664c6f07bf1",
+    "README.md": "a53a880acf68910464baf980790fb980f197cab9d641f276f4e0c6ed4d7cbe9a",
+    "tables/class_counts.csv": "9363a981c6b61b3c68d80cac567756fa1ba5dffb5b50fb342b7ec62b672ecbe3",
+    "tables/training_metadata_summary.csv": "4a7ca4ef066c09f0c8811ba69f7389f8c46a36d44be99ca16c0d115b9f590b0c",
+    "tables/training_pixel_summary.csv": "693ca22e9cdfeb23db80572d163f12115a7f59ccc659757b32f3cbcc0eb41ff6"
+  }
+}

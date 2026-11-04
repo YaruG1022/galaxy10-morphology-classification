@@ -1,0 +1,382 @@
+{
+  "reviewer": "Codex visual inspection of all 18 candidate pairs on 2026-11-03; no independent team confirmation recorded",
+  "exclude_indices": {
+    "11475": "constant image: no spatial morphology information",
+    "1006": "label-conflicting overlapping views; group=1006, labels=[0, 7]; do not choose a label",
+    "12442": "label-conflicting overlapping views; group=1006, labels=[0, 7]; do not choose a label",
+    "1718": "redundant overlapping view; group=1521; retain original row 1521",
+    "2331": "redundant overlapping view; group=1521; retain original row 1521",
+    "2308": "redundant overlapping view; group=1769; retain original row 1769",
+    "2050": "redundant overlapping view; group=1771; retain original row 1771",
+    "2444": "redundant overlapping view; group=1859; retain original row 1859",
+    "2538": "redundant overlapping view; group=1993; retain original row 1993",
+    "2067": "redundant overlapping view; group=2043; retain original row 2043",
+    "2400": "redundant overlapping view; group=2230; retain original row 2230",
+    "2545": "redundant overlapping view; group=2290; retain original row 2290",
+    "9076": "redundant overlapping view; group=8031; retain original row 8031",
+    "11529": "redundant overlapping view; group=10499; retain original row 10499",
+    "13218": "redundant overlapping view; group=11939; retain original row 11939",
+    "12339": "redundant overlapping view; group=12087; retain original row 12087",
+    "15307": "redundant overlapping view; group=14519; retain original row 14519",
+    "15130": "redundant overlapping view; group=14791; retain original row 14791",
+    "17231": "redundant overlapping view; group=16062; retain original row 16062",
+    "17475": "redundant overlapping view; group=17332; retain original row 17332"
+  },
+  "pair_decisions": [
+    {
+      "a": 1006,
+      "b": 12442,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 1006
+    },
+    {
+      "a": 1521,
+      "b": 1718,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 1521
+    },
+    {
+      "a": 1718,
+      "b": 2331,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 1521
+    },
+    {
+      "a": 1769,
+      "b": 2308,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 1769
+    },
+    {
+      "a": 1771,
+      "b": 2050,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 1771
+    },
+    {
+      "a": 1859,
+      "b": 2444,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 1859
+    },
+    {
+      "a": 1993,
+      "b": 2538,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 1993
+    },
+    {
+      "a": 2043,
+      "b": 2067,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 2043
+    },
+    {
+      "a": 2230,
+      "b": 2400,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 2230
+    },
+    {
+      "a": 2290,
+      "b": 2545,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 2290
+    },
+    {
+      "a": 8031,
+      "b": 9076,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 8031
+    },
+    {
+      "a": 10499,
+      "b": 11529,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 10499
+    },
+    {
+      "a": 11939,
+      "b": 13218,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 11939
+    },
+    {
+      "a": 12087,
+      "b": 12339,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 12087
+    },
+    {
+      "a": 14519,
+      "b": 15307,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 14519
+    },
+    {
+      "a": 14791,
+      "b": 15130,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 14791
+    },
+    {
+      "a": 16062,
+      "b": 17231,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 16062
+    },
+    {
+      "a": 17332,
+      "b": 17475,
+      "decision": "visually_confirmed_overlapping_views",
+      "group_id": 17332
+    }
+  ],
+  "default_pair_action": "retain_both_and_group",
+  "metadata_policy": "Keep missing, zero, and negative redshift unchanged; flag for separate metadata analyses. Main models use images only.",
+  "reviewed_at_utc": "2026-11-04T00:31:01.207007+00:00",
+  "representative_policy": "Keep lowest original index in a visually confirmed redundant-view group with consistent labels; exclude all members of a visually confirmed redundant-view group with conflicting labels.",
+  "visual_evidence": "data/processed/preparation_v1/review_images/candidate_review_1.png through candidate_review_3.png; matching galaxy structure and background sources with shifted cutout centers",
+  "groups": [
+    {
+      "group_id": 1006,
+      "indices": [
+        1006,
+        12442
+      ],
+      "labels": [
+        0,
+        7
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "exclude_group_label_conflict",
+      "retained_index": null
+    },
+    {
+      "group_id": 1521,
+      "indices": [
+        1521,
+        1718,
+        2331
+      ],
+      "labels": [
+        1,
+        1,
+        1
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 1521
+    },
+    {
+      "group_id": 1769,
+      "indices": [
+        1769,
+        2308
+      ],
+      "labels": [
+        1,
+        1
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 1769
+    },
+    {
+      "group_id": 1771,
+      "indices": [
+        1771,
+        2050
+      ],
+      "labels": [
+        1,
+        1
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 1771
+    },
+    {
+      "group_id": 1859,
+      "indices": [
+        1859,
+        2444
+      ],
+      "labels": [
+        1,
+        1
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 1859
+    },
+    {
+      "group_id": 1993,
+      "indices": [
+        1993,
+        2538
+      ],
+      "labels": [
+        1,
+        1
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 1993
+    },
+    {
+      "group_id": 2043,
+      "indices": [
+        2043,
+        2067
+      ],
+      "labels": [
+        1,
+        1
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 2043
+    },
+    {
+      "group_id": 2230,
+      "indices": [
+        2230,
+        2400
+      ],
+      "labels": [
+        1,
+        1
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 2230
+    },
+    {
+      "group_id": 2290,
+      "indices": [
+        2290,
+        2545
+      ],
+      "labels": [
+        1,
+        1
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 2290
+    },
+    {
+      "group_id": 8031,
+      "indices": [
+        8031,
+        9076
+      ],
+      "labels": [
+        5,
+        5
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 8031
+    },
+    {
+      "group_id": 10499,
+      "indices": [
+        10499,
+        11529
+      ],
+      "labels": [
+        6,
+        6
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 10499
+    },
+    {
+      "group_id": 11939,
+      "indices": [
+        11939,
+        13218
+      ],
+      "labels": [
+        7,
+        7
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 11939
+    },
+    {
+      "group_id": 12087,
+      "indices": [
+        12087,
+        12339
+      ],
+      "labels": [
+        7,
+        7
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 12087
+    },
+    {
+      "group_id": 14519,
+      "indices": [
+        14519,
+        15307
+      ],
+      "labels": [
+        8,
+        8
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 14519
+    },
+    {
+      "group_id": 14791,
+      "indices": [
+        14791,
+        15130
+      ],
+      "labels": [
+        8,
+        8
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 14791
+    },
+    {
+      "group_id": 16062,
+      "indices": [
+        16062,
+        17231
+      ],
+      "labels": [
+        9,
+        9
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 16062
+    },
+    {
+      "group_id": 17332,
+      "indices": [
+        17332,
+        17475
+      ],
+      "labels": [
+        9,
+        9
+      ],
+      "review": "visually_confirmed_overlapping_cutouts",
+      "action": "keep_lowest_original_index",
+      "retained_index": 17332
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+* text=auto eol=lf
+*.py text eol=lf
+*.png binary
+*.pdf binary
+
+# Frozen preparation records and source are checked by exact byte hashes.
+/metadata/** -text whitespace=cr-at-eol
+/prepare_data.py -text
+
+# Preserve generated SVG bytes used by the EDA output checksums.
+/docs/eda/figures/*.svg -text -whitespace
