@@ -1,0 +1,31 @@
+{
+  "status": "PASS",
+  "retained_rows": 17655,
+  "raw_dimensions": 1818,
+  "processed_dimensions": 118,
+  "partitions": {
+    "train": [
+      12359,
+      118
+    ],
+    "validation": [
+      2650,
+      118
+    ],
+    "test": [
+      2646,
+      118
+    ]
+  },
+  "fit_rows": 12359,
+  "original_id_alignment_verified": true,
+  "scalar_csv_matches_raw_matrix": true,
+  "train_only_imputer_and_scaler_statistics_verified": true,
+  "exported_transforms_reproduced": true,
+  "finite_processed_matrices": true,
+  "umap_training_rows_verified": true,
+  "sampled_images_reextracted": 10,
+  "source_and_artifact_hashes_verified": true,
+  "overlap": 0,
+  "figures": 4
+}

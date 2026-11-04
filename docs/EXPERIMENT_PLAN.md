@@ -1,6 +1,6 @@
 # Experiment plan
 
-Local data preparation v1 and training-only data-level exploration are complete; see [DATA.md](DATA.md), [the EDA record](eda/README.md), and `metadata/data_v1/summary.json`. Hand-crafted feature extraction, representation-based exploration, model training, and performance findings below remain planned.
+Local data preparation v1 and training-only data-level exploration are complete; see [DATA.md](DATA.md), [the EDA record](eda/README.md), and `metadata/data_v1/summary.json`. Handcrafted feature extraction, training-only preprocessing and handcrafted-feature UMAP are also complete; see [the feature record](features/README.md). Classifier training, pretrained-representation exploration and performance findings remain planned.
 
 ## Fair comparison and leakage control
 
@@ -16,7 +16,7 @@ Local data preparation v1 and training-only data-level exploration are complete;
 
 Color statistics and band differences in the center and outskirts; concentration, asymmetry, and smoothness; Gini coefficient and M20; image-moment shape measures; and histogram of oriented gradients (HOG) on downsampled grayscale images with PCA reduction.
 
-Feature definitions, regions, preprocessing choices, and retained PCA dimensions remain to be specified by the team.
+Feature v1 definitions are fixed in `configs/features_v1.json` and documented in `docs/features/README.md`: 54 scalar/quality descriptors, 1,764 HOG values, and 64 retained HOG PCA components, yielding 118 processed inputs. Morphology and color descriptors are explicitly display-composite proxies, not calibrated astronomical measurements. The count of 64 was fixed before observing explained variance. The exported preprocessing instance fits only the 12,359 training rows; future cross-validation must refit the entire `make_model_pipeline` inside each training fold.
 
 ## Classical models
 
@@ -41,7 +41,7 @@ Primary metric: macro F1.
 
 Also report accuracy, balanced accuracy, per-class precision/recall/F1, normalized confusion matrices, macro one-vs-rest receiver operating characteristic area under the curve (ROC-AUC), trainable parameters, and training time. Document how valid probabilities or decision scores are obtained for each model.
 
-Report deep-model means and standard deviations over three seeds. Class balance, training-image grids/averages, pixel distributions and metadata context are complete in `docs/eda/`. Uniform manifold approximation and projection (UMAP) of hand-crafted/pretrained features, learning curves, per-class recall comparisons, gradient-weighted class activation mapping (Grad-CAM), attention maps, and error galleries remain planned with their corresponding feature/model modules.
+Report deep-model means and standard deviations over three seeds. Class balance, training-image grids/averages, pixel distributions and metadata context are complete in `docs/eda/`. Training-only, unsupervised uniform manifold approximation and projection (UMAP) of handcrafted features is complete in `docs/features/`. Pretrained-feature UMAP, learning curves, per-class recall comparisons, gradient-weighted class activation mapping (Grad-CAM), attention maps, and error galleries remain planned with the corresponding model modules.
 
 ### Hypothesis H1
 

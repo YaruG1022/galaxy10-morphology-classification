@@ -1,6 +1,6 @@
 # Collaboration
 
-The repository contains planning materials, local data preparation v1, and training-only exploratory analysis. Use the frozen sample indices and review the decisions in [the data record](docs/DATA.md) before feature extraction or modeling. Model experiments remain pending.
+The repository contains planning materials, local data preparation v1, training-only exploratory analysis and handcrafted feature v1 exports. Use the frozen sample indices and review the decisions in [the data record](docs/DATA.md) before feature extraction or modeling. Classifier experiments remain pending. Use raw descriptors and fold-local `make_model_pipeline` for future cross-validation; do not cross-validate the full-training-preprocessed exports.
 
 ## Changes
 
@@ -28,4 +28,4 @@ Repository access is managed by the owner. Collaborator usernames must be confir
 
 Respect the source dataset's license and attribution. A repository software license has not yet been selected; the dataset license does not license the team's code.
 
-Codex assisted with repository organization, data audit/preparation/validation scripts, visual screening of duplicate candidates, and the exploratory scripts, figures, notebook and English record. Metadata and EDA records identify this provenance; independent team confirmation is not recorded. No model training or performance evaluation has been carried out. Maintain an accurate record of assistance and independently verify the code, decisions and interpretations.
+Codex assisted with repository organization, data audit/preparation/validation scripts, visual screening of duplicate candidates, the exploratory scripts/figures/notebook, and the handcrafted-feature extraction, preprocessing, projection, diagnostics, validation and English records. Metadata and EDA records identify this provenance; independent team confirmation is not recorded. Training-only unsupervised preprocessing and projection have been fitted; no research classifier training or performance evaluation has been carried out. Maintain an accurate record of assistance and independently verify the code, decisions and interpretations.
