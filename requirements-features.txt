@@ -1,0 +1,12 @@
+-r requirements-eda.txt
+scikit-learn==1.6.1
+scikit-image==0.25.2
+joblib==1.4.2
+threadpoolctl==3.6.0
+umap-learn==0.5.9.post2
+pynndescent==0.5.13
+numba==0.61.2
+llvmlite==0.44.0
+imageio==2.37.0
+tifffile==2025.6.11
+lazy-loader==0.4

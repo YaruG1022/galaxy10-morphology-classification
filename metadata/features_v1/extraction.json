@@ -1,0 +1,18 @@
+{
+  "key": {
+    "extraction_fingerprint": "9bcf384a045f5a2d67327b4a3618422dc39c8bebc7984e66677b83ea3a713cf6",
+    "manifest_sha256": "137e910f026a733867a619933f9db37b5d5b1c42a2a1cc7f590973ee369c3c9d",
+    "raw_md5": "a920094d5e470e3705f4691c0d6dff54",
+    "versions": {
+      "numpy": "2.2.6",
+      "scipy": "1.14.0",
+      "scikit-image": "0.25.2"
+    }
+  },
+  "raw_matrix_sha256": "d2eb0a79278bec683d124a36f866617a6770b1e516d06eabbf63ae2f045a3440",
+  "shape": [
+    17655,
+    1818
+  ],
+  "scalar_missing_values_are_not_imputed_here": true
+}

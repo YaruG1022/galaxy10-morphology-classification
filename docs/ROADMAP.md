@@ -1,6 +1,6 @@
 # Research roadmap
 
-This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 and training-only data-level exploration were completed on November 3, 2026. Hand-crafted feature extraction, representation-based exploration, model training, and performance results remain pending.
+This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 and training-only data-level exploration were completed on November 3, 2026. Handcrafted features, training-only preprocessing and handcrafted-feature UMAP are now complete. Classifier training, pretrained-representation exploration and performance results remain pending.
 
 | Planned dates (2026) | Stage | Expected deliverable | Initial lead |
 | --- | --- | --- | --- |
@@ -28,8 +28,10 @@ This schedule is carried forward from the October 7, 2026 proposal. Local data p
 - [x] Data inspection, documented visual duplicate review, cleaning manifest, and frozen v1 split.
 - [ ] Kamiak environment, data transfer, and compute access verification.
 - [x] Training-only data-level exploration: seven reviewed figures, English interpretations, aggregate tables, executed notebook, and independent checks.
-- [ ] Hand-crafted feature extraction and feature/pretrained-representation UMAP plots.
+- [x] Handcrafted feature v1 matrices, documented proxies and masks, train-only preprocessing, and training handcrafted-feature UMAP.
+- [x] Feature row/provenance/fit validation, targeted regression checks and an executed feature-audit notebook.
+- [ ] Pretrained-representation UMAP with the later pretrained-model module.
 - [ ] Models, evaluation, and experiments.
 - [ ] Results, interpretation, report, and slides.
 
-Data preparation and exploratory scripts, pinned data/EDA dependencies, frozen metadata, and an executed exploration notebook are present. See [the EDA record](eda/README.md). Raw data and caches remain local and ignored. No hand-crafted feature table, model-training code, checkpoint, or model-performance result is present.
+Data preparation and exploratory scripts, pinned data/EDA dependencies, frozen metadata, and an executed exploration notebook are present. See [the EDA record](eda/README.md). Raw data and caches remain local and ignored. Handcrafted features and fitted unsupervised preprocessing are present; see [the feature record](features/README.md). No research classifier, classifier checkpoint, or model-performance result is present.

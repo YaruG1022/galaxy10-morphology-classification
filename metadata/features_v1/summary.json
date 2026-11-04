@@ -1,0 +1,88 @@
+{
+  "created_at_utc": "2026-11-04T01:31:50.548882+00:00",
+  "version": "features_v1",
+  "raw_md5": "a920094d5e470e3705f4691c0d6dff54",
+  "manifest_sha256": "137e910f026a733867a619933f9db37b5d5b1c42a2a1cc7f590973ee369c3c9d",
+  "retained_rows": 17655,
+  "scalar_dimensions": 54,
+  "hog_dimensions": 1764,
+  "raw_dimensions": 1818,
+  "processed_dimensions": 118,
+  "partitions": {
+    "train": [
+      12359,
+      118
+    ],
+    "validation": [
+      2650,
+      118
+    ],
+    "test": [
+      2646,
+      118
+    ]
+  },
+  "training_fit_rows": 12359,
+  "umap_fit_rows": 12359,
+  "classifier_training_performed": false,
+  "test_performance_evaluated": false,
+  "label_used_during_extraction_or_fit": false,
+  "fit_preprocessing_on_held_out_rows": false,
+  "source_sha256": {
+    "galaxy_features.py": "d62ed296691b8a03a4c01877b6221d5af724a3c3b15c91f61196a725827caa67",
+    "build_features.py": "ac65f159d3fe94846a3594e25d26afa8d41a864af54125a01c7584f1f6b49b3a",
+    "configs/features_v1.json": "958d9395e40658277e75724c44b0f517d29050b406c8825241ea65c9e9265394"
+  },
+  "versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.14.0",
+    "scikit-image": "0.25.2",
+    "scikit-learn": "1.6.1",
+    "joblib": "1.4.2",
+    "umap-learn": "0.5.9.post2",
+    "numba": "0.61.2",
+    "matplotlib": "3.10.7"
+  },
+  "limitations": [
+    "Morphology proxies use rendered composites, not calibrated astronomical flux.",
+    "Fixed central-component detection can miss faint targets or include neighbors.",
+    "HOG is orientation-sensitive; 64 PCA components are a fixed engineering choice.",
+    "UMAP is descriptive, unsupervised, training-only and not evidence of prediction performance.",
+    "Future CV must refit the full preprocessing pipeline inside each training fold."
+  ],
+  "diagnostic_example_indices": [
+    201,
+    1255,
+    3362,
+    6081,
+    7600,
+    9087,
+    10438,
+    12079,
+    14844,
+    16009
+  ],
+  "training_scalar_nan_entries": 0,
+  "training_fallback_masks": 0,
+  "hog_pca_explained_variance": 0.4203086495399475,
+  "artifact_sha256": {
+    "data/processed/features_v1/preprocessor.joblib": "590eb905a729518199ce29dac509c9b4d75e32024aa5f4ee757493c035e492be",
+    "data/processed/features_v1/raw_features.npz": "d2eb0a79278bec683d124a36f866617a6770b1e516d06eabbf63ae2f045a3440",
+    "data/processed/features_v1/scalar_features.csv": "22cfe2742d4f742dac81a2c625a922db361af72ef68f2d5df4f9c842eb4f0a23",
+    "data/processed/features_v1/test_features.npz": "522a3d35c74380fc72856e4168f6d5593bd4ca8d010ecd63b6927ffb38952d41",
+    "data/processed/features_v1/train_features.npz": "8459daaa97a95f1d5135f369817fb8adf0c343e48aa93a0f7bd9c0ab905e266d",
+    "data/processed/features_v1/training_umap.npz": "033364133caaa42c713bae65514077b7b98643578eb96157a26f5516ef9d28f3",
+    "data/processed/features_v1/validation_features.npz": "0a3797b94cbddb6921196acffc22ed76910dafbbb508dae2a463beaaece9a620",
+    "docs/features/figures/hog_pca_variance.png": "112f61334bd99ec0903bb46b4886fcfa618b3d8f651c30f9e94bbbb3de537efb",
+    "docs/features/figures/training_proxy_distributions.png": "12f1fa05780decd09ffb255dbf726aab539574d12c79984aae6b9a4cd905e9bb",
+    "docs/features/figures/training_segmentation_examples.png": "43dccf6e7c88583142711534672d348f025cb4aad99b16a3a7f6998ff4c3c521",
+    "docs/features/figures/training_umap.png": "9be5f54822c6ee4d1e943212d1cee3985bd4f449e40e9ff2a56c3d3ca542c48d",
+    "docs/features/README.md": "53ce074a81f7c088b5994da219199f876c50ba1a439d1857b504e722a0bdb523",
+    "metadata/features_v1/config.json": "958d9395e40658277e75724c44b0f517d29050b406c8825241ea65c9e9265394",
+    "metadata/features_v1/extraction.json": "1d87a479c4823513153594dcf5dd30135c6ef32fa1322c545c7cc8ede0534397",
+    "metadata/features_v1/fit_train_indices.json": "e24dba26fc337f6ebdfedabe99ab94e11c758231f9483f409c477c131417b8f1",
+    "metadata/features_v1/preprocessing.json": "1532f3bc2eecd5d1fc0738a1f3d954f831cfbc6bfb3589652fade11b2b149dc4",
+    "metadata/features_v1/schema.json": "8b03cb48d387531dc073318f171b8ab10cb092ffeaa37d349c2e743c8be23e69",
+    "metadata/features_v1/training_quality.csv": "89af0bc6cf974fd038006ca83fae50cae247f01b6bde1e773bc469a2c5cbf370"
+  }
+}

@@ -2,7 +2,7 @@
 
 Compare hand-crafted image features, a convolutional neural network (CNN) trained from scratch, and pretrained CNNs and vision transformers on the ten-class Galaxy10 DECaLS dataset.
 
-**Status: data preparation v1 and training-only exploratory analysis completed on November 3, 2026.** The verified raw release has 17,675 images; cleaning retains 17,655. Frozen split records are under `metadata/data_v1/`. [Exploratory findings and seven figures](docs/eda/README.md) use training images only; [the executed notebook](notebooks/01_exploration.ipynb) reproduces them. Hand-crafted feature extraction, model training, and performance evaluation remain pending.
+**Status: data preparation v1 and training-only exploratory analysis completed on November 3, 2026.** The verified raw release has 17,675 images; cleaning retains 17,655. Frozen split records are under `metadata/data_v1/`. [Exploratory findings and seven figures](docs/eda/README.md) use training images only; [the executed notebook](notebooks/01_exploration.ipynb) reproduces them. Handcrafted image features and training-only preprocessing are now complete; see [the feature record](docs/features/README.md). Classifier training and performance evaluation remain pending.
 
 ## Research questions
 
@@ -74,6 +74,25 @@ Open `notebooks/01_exploration.ipynb` for the executed walkthrough. The [English
 
 All image-derived exploration uses the 12,359 training rows. Full retained class counts come from the frozen manifest. The held-out images do not enter the exploratory statistics or gallery. No model performance or CNN-versus-transformer conclusion is reported. Feature-representation UMAP comparisons will be added with the relevant feature/model modules.
 
+## Handcrafted features
+
+The fixed v1 extractor covers stored-channel statistics, display-image morphology proxies, shape moments and HOG. All 17,655 retained images have 54 scalar/quality descriptors plus 1,764 raw HOG values. Training-only scalar imputation/scaling and 64-component HOG PCA/scaling produce 118 numeric inputs per image.
+
+```powershell
+python -m pip install -r requirements-features.txt
+python build_features.py
+python validate_features.py
+python -m unittest discover -s tests -v
+```
+
+The prepared local environment is also available as `.venv\Scripts\python.exe`. See [the English feature record](docs/features/README.md), [fixed configuration](configs/features_v1.json), and [executed feature audit](notebooks/02_handcrafted_features.ipynb).
+
+Large matrices, the scalar CSV, and the fitted transformer remain in ignored `data/processed/features_v1/`; small schemas and provenance are under `metadata/features_v1/`. The scalar CSV's `original_index`, `label`, and `split` columns are metadata, **not inputs**. The NPZ `X` arrays keep them separate.
+
+Training diagnostics found 0 undefined scalar entries and 2,082 masks touching the fixed detection boundary (16.85%). The fixed 64 HOG components retain 42.03% of standardized training texture variance. These are baseline engineering choices with documented limits, not evidence of an optimal representation or calibrated morphology.
+
+For future cross-validation, pass **raw descriptors** to `make_model_pipeline(estimator)` from `galaxy_features.py` and put the whole pipeline inside GridSearchCV. Do not tune on the already transformed full-training exports: imputation, scaling and PCA must be refitted within each fold. The saved full-training transformer is for the final training fit and held-out inference. Training UMAP is unsupervised and descriptive; no classifier score is reported.
+
 ## Team
 
 - **Yaru Gao:** data acquisition, cleaning, duplicate checks, shared split, exploratory analysis, and hand-crafted features.
@@ -91,4 +110,4 @@ Dataset attribution and its separate license are described in [docs/DATA.md](doc
 
 ## Planning source
 
-The plan is based on the team's revised research proposal dated October 7, 2026. Original source documents are retained locally and are not uploaded here. Repository setup, data preparation, the recorded visual screening, and the exploratory scripts/figures/notebook were assisted by Codex. The records identify this provenance; independent team confirmation has not been recorded. The team must understand and independently verify the decisions and interpretations.
+The plan is based on the team's revised research proposal dated October 7, 2026. Original source documents are retained locally and are not uploaded here. Repository setup, data preparation, visual screening, exploratory analysis, and the handcrafted-feature scripts, preprocessing, figures and notebooks were assisted by Codex. The records identify this provenance; independent team confirmation has not been recorded. The team must understand and independently verify the decisions and interpretations.
