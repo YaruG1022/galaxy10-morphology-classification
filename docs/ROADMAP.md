@@ -1,6 +1,6 @@
 # Research roadmap
 
-This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 was completed on November 3, 2026; exploration, feature extraction, model training, and research results remain pending.
+This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 and training-only data-level exploration were completed on November 3, 2026. Hand-crafted feature extraction, representation-based exploration, model training, and performance results remain pending.
 
 | Planned dates (2026) | Stage | Expected deliverable | Initial lead |
 | --- | --- | --- | --- |
@@ -27,7 +27,9 @@ This schedule is carried forward from the October 7, 2026 proposal. Local data p
 - [x] Local data-only dependencies and verified data acquisition.
 - [x] Data inspection, documented visual duplicate review, cleaning manifest, and frozen v1 split.
 - [ ] Kamiak environment, data transfer, and compute access verification.
-- [ ] Feature extraction, models, evaluation, and experiments.
+- [x] Training-only data-level exploration: seven reviewed figures, English interpretations, aggregate tables, executed notebook, and independent checks.
+- [ ] Hand-crafted feature extraction and feature/pretrained-representation UMAP plots.
+- [ ] Models, evaluation, and experiments.
 - [ ] Results, interpretation, report, and slides.
 
-Data-checking/preparation scripts, pinned data-only dependencies, and frozen text metadata are now present. Raw data and review caches are local and ignored. No exploration notebook, feature table, model-training code, checkpoint, or performance result is present.
+Data preparation and exploratory scripts, pinned data/EDA dependencies, frozen metadata, and an executed exploration notebook are present. See [the EDA record](eda/README.md). Raw data and caches remain local and ignored. No hand-crafted feature table, model-training code, checkpoint, or model-performance result is present.

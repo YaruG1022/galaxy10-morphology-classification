@@ -11,7 +11,7 @@
 - Dataset DOI cited in the proposal: https://doi.org/10.5281/zenodo.10845025
 - Images: DESI Legacy Imaging Surveys; labels: Galaxy Zoo volunteer classifications.
 
-The proposal identifies the dataset license as Creative Commons Attribution 4.0 (CC BY 4.0). Verify the selected file's record and license before reuse, and cite the dataset creators and record. This dataset license does not establish a software license for the repository.
+The selected Zenodo record identifies the dataset license as Creative Commons Attribution 4.0 (CC BY 4.0), verified through `https://zenodo.org/api/records/10845026` on November 3, 2026. Cite the dataset creators and record. This dataset license does not establish a software license for the repository.
 
 ## Verified fields
 

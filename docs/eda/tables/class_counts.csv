@@ -1,0 +1,11 @@
+class_id,class_name,train,validation,test,retained
+0,Disturbed,756,162,162,1080
+1,Merging,1291,277,276,1844
+2,Round Smooth,1848,396,396,2640
+3,In-between Round Smooth,1415,303,303,2021
+4,Cigar-Shaped Smooth,233,50,50,333
+5,Barred Spiral,1427,306,306,2039
+6,Unbarred Tight Spiral,1275,273,273,1821
+7,Unbarred Loose Spiral,1818,390,389,2597
+8,Edge-on without Bulge,992,213,212,1417
+9,Edge-on with Bulge,1304,280,279,1863

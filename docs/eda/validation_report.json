@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "training_images": 12359,
+  "held_out_gallery_images": 0,
+  "gallery_images": 40,
+  "png_figures": 7,
+  "class_count_tables_match_raw_labels": true,
+  "metadata_counts_match_training_rows": true,
+  "pixel_quantiles_match_local_training_statistics": true,
+  "output_hashes_match": true,
+  "frozen_preparation_verified": true
+}

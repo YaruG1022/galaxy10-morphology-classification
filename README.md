@@ -2,7 +2,7 @@
 
 Compare hand-crafted image features, a convolutional neural network (CNN) trained from scratch, and pretrained CNNs and vision transformers on the ten-class Galaxy10 DECaLS dataset.
 
-**Status: local data preparation v1 completed on November 3, 2026.** The verified raw release has 17,675 images; the saved cleaning decisions retain 17,655. The fixed 70/15/15 split (seed 42) and independent integrity checks are available under `metadata/data_v1/`. No feature table, trained model, model evaluation, or research-performance result is available.
+**Status: data preparation v1 and training-only exploratory analysis completed on November 3, 2026.** The verified raw release has 17,675 images; cleaning retains 17,655. Frozen split records are under `metadata/data_v1/`. [Exploratory findings and seven figures](docs/eda/README.md) use training images only; [the executed notebook](notebooks/01_exploration.ipynb) reproduces them. Hand-crafted feature extraction, model training, and performance evaluation remain pending.
 
 ## Research questions
 
@@ -61,6 +61,19 @@ python validate_data_preparation.py
 
 The v1 split is frozen: `prepare_data.py` refuses to overwrite a completed version. Recreate screening in a different output/cache directory using `--scan-only`, record review decisions there, then use `--finalize`. Model training commands will be added when those modules exist.
 
+## Exploratory analysis
+
+```powershell
+python -m pip install -r requirements-eda.txt
+python eda.py
+python validate_eda.py
+python -m unittest discover -s tests -v
+```
+
+Open `notebooks/01_exploration.ipynb` for the executed walkthrough. The [English exploratory record](docs/eda/README.md) includes class balance, four training examples per class, class-average images, stored-pixel distributions, and redshift/pixel-scale context. Small aggregate tables and curated PNG/SVG figures are tracked under `docs/eda/`; per-image diagnostics and caches remain ignored under `data/processed/eda_v1/`.
+
+All image-derived exploration uses the 12,359 training rows. Full retained class counts come from the frozen manifest. The held-out images do not enter the exploratory statistics or gallery. No model performance or CNN-versus-transformer conclusion is reported. Feature-representation UMAP comparisons will be added with the relevant feature/model modules.
+
 ## Team
 
 - **Yaru Gao:** data acquisition, cleaning, duplicate checks, shared split, exploratory analysis, and hand-crafted features.
@@ -78,4 +91,4 @@ Dataset attribution and its separate license are described in [docs/DATA.md](doc
 
 ## Planning source
 
-The plan is based on the team's revised research proposal dated October 7, 2026. Original source documents are retained locally and are not uploaded here. Repository setup, data-checking/preparation scripts, and the recorded visual screening were assisted by Codex. The review files identify this provenance; independent team confirmation has not been recorded. The team must understand and independently verify the data decisions and subsequent analytical work.
+The plan is based on the team's revised research proposal dated October 7, 2026. Original source documents are retained locally and are not uploaded here. Repository setup, data preparation, the recorded visual screening, and the exploratory scripts/figures/notebook were assisted by Codex. The records identify this provenance; independent team confirmation has not been recorded. The team must understand and independently verify the decisions and interpretations.

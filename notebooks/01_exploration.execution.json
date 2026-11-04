@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "executed_code_cells": 8,
+  "errors": 0,
+  "notebook_bytes": 6528500,
+  "notebook_sha256": "e9a1d4789132d4318b0b999933b835a5e9d743de4243de8f570e45c8f1451f74",
+  "eda_script_sha256": "d21f77ab5e56d7d63225c4b1fc8c2992c4475603d0787e934de7c84dc83ee8ff",
+  "dataset_version": "data_v1",
+  "notebook_previews_resized": true,
+  "full_resolution_figures": "docs/eda/figures/"
+}
