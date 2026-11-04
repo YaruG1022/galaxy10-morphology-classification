@@ -1,6 +1,6 @@
 # Collaboration
 
-The repository currently contains planning and setup materials only. Begin analytical implementation after the team agrees on the decisions in [the experiment plan](docs/EXPERIMENT_PLAN.md).
+The repository contains planning materials and local data preparation v1. Use the frozen sample indices and review the decisions in [the data record](docs/DATA.md) before feature extraction or modeling. Model experiments remain pending.
 
 ## Changes
 
@@ -28,4 +28,4 @@ Repository access is managed by the owner. Collaborator usernames must be confir
 
 Respect the source dataset's license and attribution. A repository software license has not yet been selected; the dataset license does not license the team's code.
 
-Codex assisted with initial repository organization and planning-document formatting based on the team's existing proposal. This setup contains no analytical implementation or generated results. Maintain an accurate record of any later assistance.
+Codex assisted with repository organization, the data audit/preparation/validation scripts, and recorded visual screening of duplicate candidates. Metadata record this provenance; independent team confirmation is not recorded. No model training or performance evaluation has been carried out. Maintain an accurate record of assistance and independently verify the code and decisions.

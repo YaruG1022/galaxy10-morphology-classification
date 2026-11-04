@@ -1,0 +1,16 @@
+{
+  "raw_count": 17675,
+  "retained": 17655,
+  "excluded": 20,
+  "split_counts": {
+    "train": 12359,
+    "validation": 2650,
+    "test": 2646
+  },
+  "candidate_pairs_checked": 18,
+  "overlap": 0,
+  "candidate_leakage": 0,
+  "all_recorded_hashes_match": true,
+  "split_reproduced_from_seed_and_decisions": true,
+  "validation_script_sha256": "f86a63ab4db7c06c9de1f7be4978c969be6ed27b079ea594846d501c70a2b455"
+}

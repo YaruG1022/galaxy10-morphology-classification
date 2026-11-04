@@ -1,11 +1,11 @@
 # Experiment plan
 
-All items below are planned. No experimental findings are available.
+Local data preparation v1 is complete; see [DATA.md](DATA.md) and `metadata/data_v1/summary.json`. Model training, feature analysis, and performance findings below remain planned.
 
 ## Fair comparison and leakage control
 
-- All ten models use the same deduplicated stratified 70/15/15 split.
-- Select and record the split seed before creating the split; its value is not yet fixed.
+- All ten models must use the frozen v1 original-row indices in `metadata/data_v1/`: 12,359 train / 2,650 validation / 2,646 test, approximately 70/15/15.
+- Split seed is fixed at 42, before any model evaluation. The v1 split must not be regenerated to improve results.
 - Keep the held-out test partition closed until the model choices and comparison procedure are frozen.
 - Fit feature scaling and principal component analysis (PCA) on training data only. During cross-validation, fit these steps within each training fold.
 - Apply augmentation to deep-model training data only.
@@ -72,8 +72,8 @@ These are targets, not promised or observed results.
 
 ## Decisions to resolve before implementation
 
-- Exact duplicate thresholds and match-review procedure.
-- Split seed and three training seeds.
+- Data v1 screening thresholds and match-review decisions are recorded in DATA.md and `metadata/data_v1/`; any changed data decision requires a new version.
+- Three training seeds remain to be selected; the data split seed is already fixed at 42.
 - Model checkpoint names, pretrained-data sources, and software versions.
 - Hyperparameter search spaces, compute budgets, and stopping rules.
 - H1 aggregation and uncertainty reporting.

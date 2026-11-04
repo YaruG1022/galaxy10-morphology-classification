@@ -1,0 +1,5 @@
+# Verified data-preparation environment; Python 3.12.4
+numpy==2.2.6
+h5py==3.16.0
+scipy==1.14.0
+Pillow==11.3.0

@@ -1,6 +1,6 @@
 # Research roadmap
 
-This schedule is carried forward from the October 7, 2026 proposal. All analytical stages are pending; repository creation does not imply completion of data preparation.
+This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 was completed on November 3, 2026; exploration, feature extraction, model training, and research results remain pending.
 
 | Planned dates (2026) | Stage | Expected deliverable | Initial lead |
 | --- | --- | --- | --- |
@@ -22,11 +22,12 @@ This schedule is carried forward from the October 7, 2026 proposal. All analytic
 
 ## Current status
 
-- [x] Private GitHub repository and main branch.
+- [x] Repository and main branch.
 - [x] Planning documents, ignore rules, and collaboration templates.
-- [ ] Compute environment and data acquisition.
-- [ ] Data inspection, duplicate checks, and saved split.
+- [x] Local data-only dependencies and verified data acquisition.
+- [x] Data inspection, documented visual duplicate review, cleaning manifest, and frozen v1 split.
+- [ ] Kamiak environment, data transfer, and compute access verification.
 - [ ] Feature extraction, models, evaluation, and experiments.
 - [ ] Results, interpretation, report, and slides.
 
-No model code, notebooks, dependency locks, data, checkpoints, or analytical results are included in this setup.
+Data-checking/preparation scripts, pinned data-only dependencies, and frozen text metadata are now present. Raw data and review caches are local and ignored. No exploration notebook, feature table, model-training code, checkpoint, or performance result is present.

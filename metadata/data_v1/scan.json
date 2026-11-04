@@ -1,0 +1,40 @@
+{
+  "created_at_utc": "2026-11-04T00:22:01.980664+00:00",
+  "raw_file": "Galaxy10_DECals_NoDuplicated.h5",
+  "raw_md5": "a920094d5e470e3705f4691c0d6dff54",
+  "raw_size_bytes": 2726423918,
+  "source": "https://zenodo.org/records/10845026",
+  "sample_count": 17675,
+  "constant_image_indices": [
+    11475
+  ],
+  "candidate_pair_count": 18,
+  "thresholds": {
+    "sky_arcsec": 5.0,
+    "phash_hamming_radius": 4,
+    "hash_bits": 64,
+    "orientations": 8,
+    "thumbnail": [
+      32,
+      32
+    ],
+    "hash_only_min_thumbnail_correlation": 0.995,
+    "hash_only_max_thumbnail_rmse": 8,
+    "hash_only_max_dhash_distance": 8
+  },
+  "cache_arrays_sha256": "8b5d476402d72515bc04c99e004428055e51940b0947b51f1267550c2d94e05f",
+  "versions": {
+    "python": "3.12.4",
+    "numpy": "2.2.6",
+    "scipy": "1.14.0",
+    "Pillow": "11.3.0",
+    "h5py": "3.16.0"
+  },
+  "limitations": [
+    "Finite thresholds cannot prove that all near-duplicates have been found.",
+    "pHash can match different smooth galaxies; candidates are not automatically deleted.",
+    "Orientation screening covers rotations by multiples of 90 degrees and flips; it is not invariant to arbitrary crops.",
+    "Hash-only matches must also pass aligned-thumbnail correlation, RMSE and dHash thresholds; weak hash-only matches remain recorded but are not grouped. These screening thresholds are engineering choices, not calibrated duplicate probabilities."
+  ],
+  "initial_screen_pair_count": 21504
+}
