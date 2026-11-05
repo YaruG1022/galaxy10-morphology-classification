@@ -2,13 +2,13 @@
 
 [English](README.md)
 
-使用 Galaxy10 DECaLS 的十类星系图片，比较基于手工特征（handcrafted features）的传统分类方法、从头训练的卷积神经网络（Convolutional Neural Network, CNN），以及预训练模型（pretrained models）。
+使用 Galaxy10 DECaLS 的十类星系图片，比较基于手工特征（handcrafted features）的传统分类方法、从头训练的卷积神经网络（Convolutional Neural Network, CNN），以及预训练卷积神经网络（pretrained CNNs）和视觉变换器（vision transformers）。
 
 **当前进度：数据准备、探索性数据分析（Exploratory Data Analysis, EDA）和手工特征工程（handcrafted feature engineering）已完成；分类模型训练（classifier training）与性能评价（performance evaluation）尚未开始。** 原始文件有 17,675 张图片，清理后保留 17,655 张。前三个模块的记录、图表和已执行的交互式笔记本（notebooks）已保存在本项目中。
 
 ## 研究问题
 
-- 从手工特征（handcrafted features）到从头训练及预训练模型（pretrained models），分类效果会怎样变化？
+- 从基于手工特征（handcrafted features）的传统模型（classical models）到从头训练的卷积神经网络（CNN）和微调的预训练模型（fine-tuned pretrained models），分类效果会怎样变化？
 - 对于受扰动星系（Disturbed）和并合星系（Merging），视觉变换器（vision transformers）的召回率（recall）是否高于规模相近的卷积神经网络（CNN）？
 - 不同模型容易混淆哪些类别和图片？
 - 按类别加权的训练（class-weighted training）能否改善少数类别的表现？
@@ -46,7 +46,7 @@
 
 ### 2. 探索性数据分析（EDA）
 
-已生成七张图，涵盖类别数量、每类图片示例、类别平均图片、像素强度、图片通道差异，以及红移（redshift）和像素尺度（pixel scale）。所有基于图片的统计和示例选择只使用训练集（training set）；全体类别数量来自固定的样本清单（sample manifest）。
+已生成七张图，涵盖类别数量、每类图片示例、类别平均图片、像素强度、图片通道差异，以及红移（redshift）和像素尺度（pixel scale）。所有基于图片的统计和示例选择只使用训练集（training set）；全体类别数量来自固定的样本清单（sample manifest）。每类使用固定随机种子（random seed）选取四张示例图片。
 
 最多的类别有 2,640 张图片，最少的只有 333 张，相差约 7.93 倍。这种类别不平衡（class imbalance）意味着整体准确率（accuracy）可能掩盖少数类别的问题。图片中的邻近天体、背景和目标大小差异，也可能影响整张图片的统计值。
 
@@ -62,7 +62,7 @@
 - 训练图片中没有出现无法计算的数值描述量；2,082 张图片的目标掩膜（target masks）触及预设检测边界，占 16.85%。
 - 固定的 64 个主成分（principal components）保留了标准化纹理数据方差（variance）的 42.03%。这是预先固定的设置，尚未通过分类实验确定效果。
 - 形态代理量（morphology proxies）来自显示合成图（display composites），不是经过天文标定的物理测量。
-- 训练特征的统一流形逼近与投影（Uniform Manifold Approximation and Projection, UMAP）只用于观察二维分布，没有使用类别标注（class labels）参与拟合（fitting），不能作为分类性能证据。
+- 训练特征的统一流形逼近与投影（Uniform Manifold Approximation and Projection, UMAP）只用于观察二维分布，没有使用类别标注（class labels）参与拟合（fitting），不能作为分类性能证据。预训练表示（pretrained representations）的统一流形逼近与投影（UMAP）尚未完成。
 
 记录见[特征说明](docs/features/README.md)、[固定配置](configs/features_v1.json)和 [02_handcrafted_features.ipynb](notebooks/02_handcrafted_features.ipynb)。
 
@@ -86,7 +86,7 @@ python check_data.py
 python validate_data_preparation.py
 ```
 
-`check_data.py` 检查未修改的原始文件，因此仍会报告已记录的原始问题。`validate_data_preparation.py` 检查清理记录和固定数据划分（data split）。
+`check_data.py` 检查未修改的原始文件，因此仍会报告已记录的原始问题。`validate_data_preparation.py` 检查清理记录、原始文件校验值（checksum）和固定数据划分（data split），包括是否完整、是否互不重叠，以及已知重复候选（duplicate candidates）是否跨越不同划分。
 
 重新生成探索性分析（EDA）：
 
@@ -112,7 +112,7 @@ python -m unittest discover -s tests -v
 
 当前机器已准备好项目虚拟环境（virtual environment），也可使用 `.venv\Scripts\python.exe`。特征提取（feature extraction）会处理全部保留图片，耗时取决于机器配置。
 
-`prepare_data.py` 用于重建筛查和清理过程，默认拒绝覆盖已经完成的固定版本。若要重新检查，应使用新的输出目录，先执行 `--scan-only`，记录复核决定后再执行 `--finalize`；具体说明见[数据记录](docs/DATA.md)。分类模型训练命令将在对应模块实现后添加。
+`prepare_data.py` 用于重建筛查和清理过程，默认拒绝覆盖已经完成的固定版本。若要重新检查，应使用新的输出和缓存目录（cache directories），先执行 `--scan-only`，记录复核决定后再执行 `--finalize`；具体说明见[数据记录](docs/DATA.md)。分类模型训练命令将在对应模块实现后添加。
 
 ## 文件位置
 
@@ -120,14 +120,21 @@ python -m unittest discover -s tests -v
 | --- | --- |
 | `data/raw/` | 原始图片文件，仅保存在本地 |
 | `metadata/data_v1/` | 固定数据划分（data split）、样本清单（sample manifest）、清理决定及校验记录 |
+| `data/processed/preparation_v1/` | 本地缩略图缓存（thumbnail cache）及图片复核表 |
 | `docs/eda/` | 探索性分析（EDA）的图表、统计表和解释 |
+| `data/processed/eda_v1/` | 本地逐张图片诊断（per-image diagnostics）及缓存数组（cached arrays） |
 | `docs/features/` | 特征提取（feature extraction）的方法、诊断图和限制 |
 | `metadata/features_v1/` | 特征定义、处理配置、拟合行号（fit indices）及校验记录 |
 | `data/processed/features_v1/` | 本地特征矩阵（feature matrices）及预处理器（preprocessor） |
 | `notebooks/` | 已执行的交互式笔记本（notebooks） |
+| [docs/EXPERIMENT_PLAN.md](docs/EXPERIMENT_PLAN.md) | 计划方法、评价指标（metrics）、目标和待定事项 |
 | [docs/ROADMAP.md](docs/ROADMAP.md) | 后续阶段和计划分工 |
 | [docs/ENVIRONMENT_PLAN.md](docs/ENVIRONMENT_PLAN.md) | 运行环境和计算资源计划 |
 | [CONTRIBUTING.md](CONTRIBUTING.md) | 协作与实验记录约定 |
+| [.github/ISSUE_TEMPLATE](.github/ISSUE_TEMPLATE) | 任务和实验模板 |
+| [.gitignore](.gitignore) | 本地环境、密钥、数据、模型产物（model artifacts）及 `AGENTS.md` 的忽略规则（ignore rules） |
+
+`metadata/data_v1/` 中的 `review_decisions.json` 记录排除决定和复核来源；`summary.json` 记录数量、随机种子（random seed）、文件哈希值（file hashes）和筛查限制。
 
 `data/processed/features_v1/` 中的 `raw_features.npz` 保存原始描述量（raw descriptors）；`train_features.npz`、`validation_features.npz`、`test_features.npz` 保存各部分已经处理的 118 维特征（features）。类别和原始行号另存，不包含在输入数组 `X` 中。标量特征表（scalar feature table）中的 `original_index`、`label` 和 `split` 同样只是附带信息，不是模型输入。
 
@@ -150,4 +157,4 @@ python -m unittest discover -s tests -v
 
 本项目使用的去重版文件有 17,675 张图片，不能套用原始发布版的 17,736 张；清理后用于比较的是 17,655 张。
 
-研究计划以团队 2026 年 10 月 7 日修订的提案为基础，原始材料保留在本地。
+研究计划以团队 2026 年 10 月 7 日修订的提案为基础，原始材料保留在本地，不会上传。协作和工作来源记录见 [CONTRIBUTING.md](CONTRIBUTING.md)；团队需要理解并独立核实数据准备决定和分析解释。
