@@ -53,3 +53,6 @@ mlruns/
 # Scratch work
 /tmp/
 /temp/
+
+# Local agent instructions
+AGENTS.md

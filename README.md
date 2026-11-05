@@ -1,5 +1,7 @@
 # Galaxy Morphology Classification
 
+[中文](README.zh-CN.md)
+
 Compare hand-crafted image features, a convolutional neural network (CNN) trained from scratch, and pretrained CNNs and vision transformers on the ten-class Galaxy10 DECaLS dataset.
 
 **Status: data preparation v1 and training-only exploratory analysis completed on November 3, 2026.** The verified raw release has 17,675 images; cleaning retains 17,655. Frozen split records are under `metadata/data_v1/`. [Exploratory findings and seven figures](docs/eda/README.md) use training images only; [the executed notebook](notebooks/01_exploration.ipynb) reproduces them. Handcrafted image features and training-only preprocessing are now complete; see [the feature record](docs/features/README.md). Classifier training and performance evaluation remain pending.
@@ -70,7 +72,7 @@ python validate_eda.py
 python -m unittest discover -s tests -v
 ```
 
-Open `notebooks/01_exploration.ipynb` for the executed walkthrough. The [English exploratory record](docs/eda/README.md) includes class balance, four training examples per class, class-average images, stored-pixel distributions, and redshift/pixel-scale context. Small aggregate tables and curated PNG/SVG figures are tracked under `docs/eda/`; per-image diagnostics and caches remain ignored under `data/processed/eda_v1/`.
+Open `notebooks/01_exploration.ipynb` for the executed walkthrough. The [exploratory record](docs/eda/README.md) includes class balance, four training examples per class, class-average images, stored-pixel distributions, and redshift/pixel-scale context. Small aggregate tables and curated PNG/SVG figures are tracked under `docs/eda/`; per-image diagnostics and caches remain ignored under `data/processed/eda_v1/`.
 
 All image-derived exploration uses the 12,359 training rows. Full retained class counts come from the frozen manifest. The held-out images do not enter the exploratory statistics or gallery. No model performance or CNN-versus-transformer conclusion is reported. Feature-representation UMAP comparisons will be added with the relevant feature/model modules.
 
@@ -85,7 +87,7 @@ python validate_features.py
 python -m unittest discover -s tests -v
 ```
 
-The prepared local environment is also available as `.venv\Scripts\python.exe`. See [the English feature record](docs/features/README.md), [fixed configuration](configs/features_v1.json), and [executed feature audit](notebooks/02_handcrafted_features.ipynb).
+The prepared local environment is also available as `.venv\Scripts\python.exe`. See [the feature record](docs/features/README.md), [fixed configuration](configs/features_v1.json), and [executed feature audit](notebooks/02_handcrafted_features.ipynb).
 
 Large matrices, the scalar CSV, and the fitted transformer remain in ignored `data/processed/features_v1/`; small schemas and provenance are under `metadata/features_v1/`. The scalar CSV's `original_index`, `label`, and `split` columns are metadata, **not inputs**. The NPZ `X` arrays keep them separate.
 
