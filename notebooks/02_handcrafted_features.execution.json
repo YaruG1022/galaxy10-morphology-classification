@@ -2,13 +2,21 @@
   "status": "PASS",
   "executed_code_cells": 6,
   "errors": 0,
-  "notebook_sha256": "b77457e5d4b5b17b9e3d564e7bbc545faa5803565e02dfffc91e89489833ac28",
-  "notebook_bytes": 3029199,
+  "notebook_sha256": "16bada5366f85177ff2bc593e19211339ac0d3801dc70e912e8eafcfb1655def",
+  "notebook_bytes": 3032687,
   "dataset_version": "data_v1",
   "feature_version": "features_v1",
   "source_sha256": {
     "galaxy_features.py": "d62ed296691b8a03a4c01877b6221d5af724a3c3b15c91f61196a725827caa67",
     "build_features.py": "ac65f159d3fe94846a3594e25d26afa8d41a864af54125a01c7584f1f6b49b3a",
     "validate_features.py": "9cd8724e3d39a6c031fc033e61b23622a4423b1ef49160497f7dbd1793c97083"
+  },
+  "executed_notebook_sha256": "b77457e5d4b5b17b9e3d564e7bbc545faa5803565e02dfffc91e89489833ac28",
+  "last_edit": {
+    "scope": "markdown_only",
+    "description": "Refined terminology, methods and interpretation while retaining accessible prose; code and saved outputs are unchanged.",
+    "notebook_rerun": false,
+    "code_and_outputs_unchanged": true,
+    "previous_notebook_sha256": "b9f5ac21a9654fb1ac6c22c9e0f10ccbb24400db68420c745e6d1bdd618e7e5f"
   }
 }

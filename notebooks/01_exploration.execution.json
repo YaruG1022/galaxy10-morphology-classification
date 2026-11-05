@@ -2,10 +2,18 @@
   "status": "PASS",
   "executed_code_cells": 8,
   "errors": 0,
-  "notebook_bytes": 6528500,
-  "notebook_sha256": "e9a1d4789132d4318b0b999933b835a5e9d743de4243de8f570e45c8f1451f74",
+  "notebook_bytes": 6531342,
+  "notebook_sha256": "9d35c83f2c2ca530a54209b2c36d2194ba7801a66feef63e08438a341866816b",
   "eda_script_sha256": "d21f77ab5e56d7d63225c4b1fc8c2992c4475603d0787e934de7c84dc83ee8ff",
   "dataset_version": "data_v1",
   "notebook_previews_resized": true,
-  "full_resolution_figures": "docs/eda/figures/"
+  "full_resolution_figures": "docs/eda/figures/",
+  "executed_notebook_sha256": "e9a1d4789132d4318b0b999933b835a5e9d743de4243de8f570e45c8f1451f74",
+  "last_edit": {
+    "scope": "markdown_only",
+    "description": "Refined terminology, methods and interpretation while retaining accessible prose; code and saved outputs are unchanged.",
+    "notebook_rerun": false,
+    "code_and_outputs_unchanged": true,
+    "previous_notebook_sha256": "aae6aa141719e14f8062dc6e554272578f285e391670b4eed43109f709dd851f"
+  }
 }

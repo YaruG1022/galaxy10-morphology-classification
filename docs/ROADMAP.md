@@ -27,7 +27,7 @@ This schedule is carried forward from the October 7, 2026 proposal. Local data p
 - [x] Local data-only dependencies and verified data acquisition.
 - [x] Data inspection, documented visual duplicate review, cleaning manifest, and frozen v1 split.
 - [ ] Kamiak environment, data transfer, and compute access verification.
-- [x] Training-only data-level exploration: seven reviewed figures, English interpretations, aggregate tables, executed notebook, and independent checks.
+- [x] Training-only data-level exploration: seven reviewed figures, interpretations, aggregate tables, executed notebook, and independent checks.
 - [x] Handcrafted feature v1 matrices, documented proxies and masks, train-only preprocessing, and training handcrafted-feature UMAP.
 - [x] Feature row/provenance/fit validation, targeted regression checks and an executed feature-audit notebook.
 - [ ] Pretrained-representation UMAP with the later pretrained-model module.

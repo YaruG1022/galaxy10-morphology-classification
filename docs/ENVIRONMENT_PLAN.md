@@ -27,4 +27,4 @@ The classifier package layout remains a proposal. Root-level data/EDA/feature sc
 - `metadata/`: small, reviewed split and reproducibility records.
 - `data/`, `artifacts/`, `checkpoints/`, `runs/`, `results/`: local or external datasets and generated artifacts; ignored by Git.
 
-Small curated figures and English records are tracked under `docs/eda/` and `docs/features/`, with executed walkthroughs in `notebooks/`. Large per-image diagnostics, feature matrices, fitted preprocessing objects and raw data remain under ignored `data/`. Classifier directories will be added when that module begins.
+Small curated figures and records are tracked under `docs/eda/` and `docs/features/`, with executed walkthroughs in `notebooks/`. Large per-image diagnostics, feature matrices, fitted preprocessing objects and raw data remain under ignored `data/`. Classifier directories will be added when that module begins.
