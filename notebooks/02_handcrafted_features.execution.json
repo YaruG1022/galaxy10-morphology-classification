@@ -2,8 +2,8 @@
   "status": "PASS",
   "executed_code_cells": 6,
   "errors": 0,
-  "notebook_sha256": "b9f5ac21a9654fb1ac6c22c9e0f10ccbb24400db68420c745e6d1bdd618e7e5f",
-  "notebook_bytes": 3032615,
+  "notebook_sha256": "16bada5366f85177ff2bc593e19211339ac0d3801dc70e912e8eafcfb1655def",
+  "notebook_bytes": 3032687,
   "dataset_version": "data_v1",
   "feature_version": "features_v1",
   "source_sha256": {
@@ -14,9 +14,9 @@
   "executed_notebook_sha256": "b77457e5d4b5b17b9e3d564e7bbc545faa5803565e02dfffc91e89489833ac28",
   "last_edit": {
     "scope": "markdown_only",
-    "description": "Rewrote explanations for clarity; code and saved outputs are unchanged.",
+    "description": "Refined terminology, methods and interpretation while retaining accessible prose; code and saved outputs are unchanged.",
     "notebook_rerun": false,
     "code_and_outputs_unchanged": true,
-    "previous_notebook_sha256": "b77457e5d4b5b17b9e3d564e7bbc545faa5803565e02dfffc91e89489833ac28"
+    "previous_notebook_sha256": "b9f5ac21a9654fb1ac6c22c9e0f10ccbb24400db68420c745e6d1bdd618e7e5f"
   }
 }
