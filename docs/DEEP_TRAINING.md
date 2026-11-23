@@ -53,3 +53,15 @@ and provenance, epoch history, latest and best checkpoints, validation metrics,
 and per-image validation predictions keyed by original HDF5 row. Checkpoint
 selection uses validation macro F1. Retain the run files when sharing numerical
 results, since Git ignores the large run directory.
+
+## Inspect pretrained representations
+
+```text
+python explore_pretrained.py
+```
+
+The default comparison projects upstream ViT-Small/16 and Swin-Tiny
+embeddings before Galaxy10 fine-tuning. Both use the same 2,000 randomly
+selected training rows, with seed 42. UMAP fits on embeddings alone. The
+plot applies class colors afterward. The coordinates, original row IDs,
+figure, and settings are written under `runs/deep_representation_v1/`.

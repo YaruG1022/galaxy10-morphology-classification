@@ -35,7 +35,7 @@ def parse_args():
     parser.add_argument("--output-dir", type=Path)
     parser.add_argument("--data-path", type=Path, default=ROOT / "data/raw/Galaxy10_DECals_NoDuplicated.h5")
     parser.add_argument("--split-dir", type=Path, default=ROOT / "metadata/data_v1")
-    parser.add_argument("--cache-dir", type=Path, default=ROOT / "data/processed/deep_cache")
+    parser.add_argument("--cache-dir", type=Path, default=ROOT / "data/processed/deep_v1")
     parser.add_argument("--image-size", type=int, default=224)
     parser.add_argument("--workers", type=int, default=0)
     parser.add_argument("--device", default="auto", help="auto, cpu, cuda, or cuda:N")
