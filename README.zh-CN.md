@@ -4,7 +4,7 @@
 
 使用 Galaxy10 DECaLS 的十类星系图片，比较基于手工特征（handcrafted features）的传统分类方法、从头训练的卷积神经网络（Convolutional Neural Network, CNN），以及预训练卷积神经网络（pretrained CNNs）和视觉变换器（vision transformers）。
 
-**当前进度：数据准备、探索性数据分析（Exploratory Data Analysis, EDA）和手工特征工程（handcrafted feature engineering）已完成；深度模型训练流程（deep-model training pipeline）已实现，统一性能评价（unified performance evaluation）待完成。** 原始文件有 17,675 张图片，清理后保留 17,655 张。前三个模块的记录、图表和已执行的交互式笔记本（notebooks）已保存在本项目中。
+**当前进度：数据准备、探索性数据分析（Exploratory Data Analysis, EDA）和手工特征工程（handcrafted feature engineering）已完成；五种深度模型（deep models）均已完成三个随机种子（random seeds）的训练，统一性能评价（unified performance evaluation）待完成。** 原始文件有 17,675 张图片，清理后保留 17,655 张。前三个模块的记录、图表和已执行的交互式笔记本（notebooks）已保存在本项目中。
 
 ## 研究问题
 
@@ -62,7 +62,7 @@
 - 训练图片中没有出现无法计算的数值描述量；2,082 张图片的目标掩膜（target masks）触及预设检测边界，占 16.85%。
 - 固定的 64 个主成分（principal components）保留了标准化纹理数据方差（variance）的 42.03%。这是预先固定的设置，尚未通过分类实验确定效果。
 - 形态代理量（morphology proxies）来自显示合成图（display composites），不是经过天文标定的物理测量。
-- 训练特征的统一流形逼近与投影（Uniform Manifold Approximation and Projection, UMAP）只用于观察二维分布，没有使用类别标注（class labels）参与拟合（fitting），不能作为分类性能证据。预训练表示（pretrained representations）的统一流形逼近与投影（UMAP）尚未完成。
+- 训练特征的统一流形逼近与投影（Uniform Manifold Approximation and Projection, UMAP）只用于观察二维分布，没有使用类别标注（class labels）参与拟合（fitting），不能作为分类性能证据。两种预训练视觉变换器（pretrained vision transformers）的表示投影使用同一批 2,000 张训练图像，详见[预训练特征记录](docs/DEEP_TRAINING.md#inspect-pretrained-representations)。
 
 记录见[特征说明](docs/features/README.md)、[固定配置](configs/features_v1.json)和 [02_handcrafted_features.ipynb](notebooks/02_handcrafted_features.ipynb)。
 
@@ -112,7 +112,7 @@ python -m unittest discover -s tests -v
 
 当前机器已准备好项目虚拟环境（virtual environment），也可使用 `.venv\Scripts\python.exe`。特征提取（feature extraction）会处理全部保留图片，耗时取决于机器配置。
 
-`prepare_data.py` 用于重建筛查和清理过程，默认拒绝覆盖已经完成的固定版本。若要重新检查，应使用新的输出和缓存目录（cache directories），先执行 `--scan-only`，记录复核决定后再执行 `--finalize`；具体说明见[数据记录](docs/DATA.md)。分类模型训练命令将在对应模块实现后添加。
+`prepare_data.py` 用于重建筛查和清理过程，默认拒绝覆盖已经完成的固定版本。若要重新检查，应使用新的输出和缓存目录（cache directories），先执行 `--scan-only`，记录复核决定后再执行 `--finalize`；具体说明见[数据记录](docs/DATA.md)。深度模型的训练命令见上文所链接的运行说明。传统模型训练（classical-model training）属于单独的模块。
 
 ## 文件位置
 

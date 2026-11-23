@@ -1,6 +1,6 @@
 # Environment plan
 
-**Status: local data preparation, EDA and handcrafted-feature dependencies verified on Python 3.12.4.** See `requirements-data.txt`, `requirements-eda.txt` and `requirements-features.txt`. The exploration and feature-audit notebooks have been executed locally. A project `.venv` supplies the pinned feature dependencies without changing the base installation; it was created with system-site-packages access to reuse already pinned base packages. Kamiak access, GPU training, CUDA compatibility and the future modeling stack have not been validated.
+**Status: local data preparation, EDA and handcrafted-feature dependencies verified on Python 3.12.4.** See `requirements-data.txt`, `requirements-eda.txt` and `requirements-features.txt`. The exploration and feature-audit notebooks have been executed locally. A project `.venv` supplies the pinned feature dependencies without changing the base installation; it was created with system-site-packages access to reuse already pinned base packages. The deep-model trainer was validated locally on a GeForce RTX 4060 Laptop GPU with PyTorch 2.8.0, torchvision 0.23.0 and CUDA 12.8. See [deep-model training](DEEP_TRAINING.md). Kamiak access and data transfer have not been validated.
 
 | Purpose | Proposed tools |
 | --- | --- |
@@ -13,11 +13,11 @@
 | Visualization | Matplotlib; seaborn; umap-learn |
 | Research compute | Kamiak GPU resources and Slurm jobs |
 
-The local data/EDA/feature requirements pin the versions actually used. Feature v1 uses scikit-image 0.25.2, scikit-learn 1.6.1 and umap-learn 0.5.9.post2; detailed runtime versions are recorded in `metadata/features_v1/summary.json`. The team still needs to select compatible CUDA, PyTorch and model-training package versions after checking the intended compute environment. Local data exploration does not verify a GPU training environment.
+The local data/EDA/feature requirements pin the versions actually used. Feature v1 uses scikit-image 0.25.2, scikit-learn 1.6.1 and umap-learn 0.5.9.post2; detailed runtime versions are recorded in `metadata/features_v1/summary.json`. For the Windows GPU environment, follow the pinned training setup in [deep-model training](DEEP_TRAINING.md).
 
 ## Planned implementation layout
 
-The classifier package layout remains a proposal. Root-level data/EDA/feature scripts, `tests/`, `notebooks/`, `metadata/` and the fixed feature configuration in `configs/` now exist; `src/` and classifier/deep-model configurations are not implemented:
+The classifier package layout remains a proposal. Data, feature and deep-model scripts live at the repository root. Tests, notebooks, frozen sample indices and the fixed feature configuration remain in their existing directories. The following layout was proposed for expansion:
 
 - `src/`: data preparation, features, models, and evaluation.
 - `notebooks/`: exploration and analysis notebooks.
@@ -27,4 +27,4 @@ The classifier package layout remains a proposal. Root-level data/EDA/feature sc
 - `metadata/`: small, reviewed split and reproducibility records.
 - `data/`, `artifacts/`, `checkpoints/`, `runs/`, `results/`: local or external datasets and generated artifacts; ignored by Git.
 
-Small curated figures and records are tracked under `docs/eda/` and `docs/features/`, with executed walkthroughs in `notebooks/`. Large per-image diagnostics, feature matrices, fitted preprocessing objects and raw data remain under ignored `data/`. Classifier directories will be added when that module begins.
+Small curated figures and records are tracked under `docs/eda/` and `docs/features/`, with executed walkthroughs in `notebooks/`. Large per-image diagnostics, feature matrices, fitted preprocessing objects and raw data remain under ignored `data/`. Deep-model run artifacts are written under the ignored `runs/` directory.

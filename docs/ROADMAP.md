@@ -1,6 +1,6 @@
 # Research roadmap
 
-This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 and training-only data-level exploration were completed on November 3, 2026. Handcrafted features, training-only preprocessing and handcrafted-feature UMAP are now complete. The [deep-model training pipeline](DEEP_TRAINING.md) is implemented. Pretrained-representation exploration and unified evaluation remain pending.
+This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 and training-only data-level exploration were completed on November 3, 2026. Handcrafted features, training-only preprocessing and handcrafted-feature UMAP are now complete. The five [deep models](DEEP_TRAINING.md) each completed three training runs and saved validation results. Pretrained-representation exploration is complete for the two transformers. Unified evaluation remains pending.
 
 | Planned dates (2026) | Stage | Expected deliverable | Initial lead |
 | --- | --- | --- | --- |
@@ -30,8 +30,9 @@ This schedule is carried forward from the October 7, 2026 proposal. Local data p
 - [x] Training-only data-level exploration: seven reviewed figures, interpretations, aggregate tables, executed notebook, and independent checks.
 - [x] Handcrafted feature v1 matrices, documented proxies and masks, train-only preprocessing, and training handcrafted-feature UMAP.
 - [x] Feature row/provenance/fit validation, targeted regression checks and an executed feature-audit notebook.
-- [ ] Pretrained-representation UMAP with the later pretrained-model module.
-- [ ] Models, evaluation, and experiments.
+- [x] Pretrained-representation UMAP for ViT-Small/16 and Swin-Tiny using a shared training sample.
+- [x] Deep-model modules 5–7: five models and three training seeds each, with saved validation predictions.
+- [ ] Classical-model comparison and unified performance evaluation.
 - [ ] Results, interpretation, report, and slides.
 
 Data preparation and exploratory scripts, pinned data/EDA dependencies, frozen metadata, and an executed exploration notebook are present. See [the EDA record](eda/README.md). Raw data and caches remain local and ignored. Handcrafted features and fitted unsupervised preprocessing are present; see [the feature record](features/README.md). Deep-model run files are stored locally under the ignored runs directory.

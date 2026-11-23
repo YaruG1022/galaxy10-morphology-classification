@@ -4,7 +4,7 @@
 
 Use the ten-class Galaxy10 DECaLS image dataset to compare classical classifiers on handcrafted features, a convolutional neural network (CNN) trained from scratch, and pretrained CNNs and vision transformers.
 
-**Status: data preparation, exploratory data analysis (EDA), and handcrafted feature engineering are complete; the deep-model training pipeline is available, and unified performance evaluation is pending.** The raw file contains 17,675 images, and cleaning retains 17,655. Records, figures, and executed notebooks for the first three modules are saved in this repository.
+**Status: data preparation, exploratory data analysis (EDA), and handcrafted feature engineering are complete; all five deep models have completed their three training runs, and unified performance evaluation is pending.** The raw file contains 17,675 images, and cleaning retains 17,655. Records, figures, and executed notebooks for the first three modules are saved in this repository.
 
 ## Research questions
 
@@ -62,7 +62,7 @@ Each image has 54 scalar/quality descriptors and 1,764 raw texture features. Imp
 - Training rows have zero undefined scalar entries; 2,082 target masks touch the fixed detection boundary, or 16.85% of training images.
 - The fixed 64 principal components retain 42.03% of standardized training texture variance. This setting was chosen in advance and has not been evaluated through classification experiments.
 - Morphology proxies are derived from display composites, not calibrated astronomical measurements.
-- Uniform Manifold Approximation and Projection (UMAP) of training features is used only to inspect a two-dimensional distribution. Labels do not enter fitting, and the projection is not evidence of classification performance. Pretrained-representation UMAP remains pending.
+- Uniform Manifold Approximation and Projection (UMAP) of training features is used only to inspect a two-dimensional distribution. Labels do not enter fitting, and the projection is not evidence of classification performance. The [pretrained-representation exploration](docs/DEEP_TRAINING.md#inspect-pretrained-representations) uses the same 2,000 training images for both transformers.
 
 See [the feature record](docs/features/README.md), [fixed configuration](configs/features_v1.json), and [02_handcrafted_features.ipynb](notebooks/02_handcrafted_features.ipynb).
 
@@ -112,7 +112,7 @@ python -m unittest discover -s tests -v
 
 A project virtual environment is prepared on the current machine and can be invoked as `.venv\Scripts\python.exe`. Feature extraction processes every retained image; runtime depends on the machine.
 
-`prepare_data.py` rebuilds screening and preparation and refuses to overwrite a completed frozen version. To review again, use new output/cache directories, run `--scan-only`, record review decisions, and then run `--finalize`; see [the data record](docs/DATA.md). Classifier training commands will be added when that module is implemented.
+`prepare_data.py` rebuilds screening and preparation and refuses to overwrite a completed frozen version. To review again, use new output/cache directories, run `--scan-only`, record review decisions, and then run `--finalize`; see [the data record](docs/DATA.md). The run instructions above cover deep-model training. Classical-model training is a separate module.
 
 ## File locations
 

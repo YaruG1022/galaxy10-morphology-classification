@@ -1,6 +1,6 @@
 # Experiment plan
 
-Local data preparation v1 and training-only data-level exploration are complete; see [DATA.md](DATA.md), [the EDA record](eda/README.md), and `metadata/data_v1/summary.json`. Handcrafted feature extraction, training-only preprocessing and handcrafted-feature UMAP are also complete; see [the feature record](features/README.md). [Deep-model training](DEEP_TRAINING.md) is implemented. Pretrained-representation exploration and unified performance evaluation remain planned.
+Local data preparation v1 and training-only data-level exploration are complete; see [DATA.md](DATA.md), [the EDA record](eda/README.md), and `metadata/data_v1/summary.json`. Handcrafted feature extraction, training-only preprocessing and handcrafted-feature UMAP are also complete; see [the feature record](features/README.md). The five [deep models](DEEP_TRAINING.md) completed three training runs each on the frozen split and saved per-image validation predictions. The frozen pretrained representations of ViT-Small/16 and Swin-Tiny have been projected on a shared sample of training rows. Unified performance evaluation remains planned.
 
 ## Fair comparison and leakage control
 
@@ -41,7 +41,7 @@ Primary metric: macro F1.
 
 Also report accuracy, balanced accuracy, per-class precision/recall/F1, normalized confusion matrices, macro one-vs-rest receiver operating characteristic area under the curve (ROC-AUC), trainable parameters, and training time. Document how valid probabilities or decision scores are obtained for each model.
 
-Report deep-model means and standard deviations over three seeds. Class balance, training-image grids/averages, pixel distributions and metadata context are complete in `docs/eda/`. Training-only, unsupervised uniform manifold approximation and projection (UMAP) of handcrafted features is complete in `docs/features/`. Pretrained-feature UMAP, learning curves, per-class recall comparisons, gradient-weighted class activation mapping (Grad-CAM), attention maps, and error galleries remain planned with the corresponding model modules.
+Report deep-model means and standard deviations over three seeds. Class balance, training-image grids/averages, pixel distributions and metadata context are complete in `docs/eda/`. Training-only, unsupervised uniform manifold approximation and projection (UMAP) of handcrafted features is complete in `docs/features/`. Pretrained-feature UMAP for the two transformers is recorded in [deep-model training](DEEP_TRAINING.md#inspect-pretrained-representations). Learning curves, per-class recall comparisons, gradient-weighted class activation mapping (Grad-CAM), attention maps, and error galleries remain planned with the corresponding model modules.
 
 ### Hypothesis H1
 

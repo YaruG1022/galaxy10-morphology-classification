@@ -51,8 +51,11 @@ is held back for final evaluation in module 8.
 A finished `runs/deep_v1/<model>/seed_<seed>/` contains training configuration
 and provenance, epoch history, latest and best checkpoints, validation metrics,
 and per-image validation predictions keyed by original HDF5 row. Checkpoint
-selection uses validation macro F1. Retain the run files when sharing numerical
-results, since Git ignores the large run directory.
+selection uses validation macro F1. If mixed-precision validation produces
+non-finite logits, the trainer repeats validation in float32 and records the retry.
+Retain the run files when sharing numerical
+results, since Git ignores the large run directory. The completed local suite also has a five-model
+summary in `runs/deep_v1/validation_summary.csv`.
 
 ## Inspect pretrained representations
 
