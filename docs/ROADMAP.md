@@ -1,6 +1,6 @@
 # Research roadmap
 
-This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 and training-only data-level exploration were completed on November 3, 2026. Handcrafted features, training-only preprocessing and handcrafted-feature UMAP are now complete. Classifier training, pretrained-representation exploration and performance results remain pending.
+This schedule is carried forward from the October 7, 2026 proposal. Local data preparation v1 and training-only data-level exploration were completed on November 3, 2026. Handcrafted features, training-only preprocessing and handcrafted-feature UMAP are now complete. The [deep-model training pipeline](DEEP_TRAINING.md) is implemented. Pretrained-representation exploration and unified evaluation remain pending.
 
 | Planned dates (2026) | Stage | Expected deliverable | Initial lead |
 | --- | --- | --- | --- |
@@ -34,4 +34,4 @@ This schedule is carried forward from the October 7, 2026 proposal. Local data p
 - [ ] Models, evaluation, and experiments.
 - [ ] Results, interpretation, report, and slides.
 
-Data preparation and exploratory scripts, pinned data/EDA dependencies, frozen metadata, and an executed exploration notebook are present. See [the EDA record](eda/README.md). Raw data and caches remain local and ignored. Handcrafted features and fitted unsupervised preprocessing are present; see [the feature record](features/README.md). No research classifier, classifier checkpoint, or model-performance result is present.
+Data preparation and exploratory scripts, pinned data/EDA dependencies, frozen metadata, and an executed exploration notebook are present. See [the EDA record](eda/README.md). Raw data and caches remain local and ignored. Handcrafted features and fitted unsupervised preprocessing are present; see [the feature record](features/README.md). Deep-model run files are stored locally under the ignored runs directory.

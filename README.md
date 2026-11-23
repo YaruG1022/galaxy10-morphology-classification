@@ -4,7 +4,7 @@
 
 Use the ten-class Galaxy10 DECaLS image dataset to compare classical classifiers on handcrafted features, a convolutional neural network (CNN) trained from scratch, and pretrained CNNs and vision transformers.
 
-**Status: data preparation, exploratory data analysis (EDA), and handcrafted feature engineering are complete; classifier training and performance evaluation have not started.** The raw file contains 17,675 images, and cleaning retains 17,655. Records, figures, and executed notebooks for the first three modules are saved in this repository.
+**Status: data preparation, exploratory data analysis (EDA), and handcrafted feature engineering are complete; the deep-model training pipeline is available, and unified performance evaluation is pending.** The raw file contains 17,675 images, and cleaning retains 17,655. Records, figures, and executed notebooks for the first three modules are saved in this repository.
 
 ## Research questions
 
@@ -68,13 +68,13 @@ See [the feature record](docs/features/README.md), [fixed configuration](configs
 
 ## Evaluation rules
 
-Macro-averaged F1 is the planned primary metric, with per-class recall also reported. Keep the test set closed until model choices are frozen. Each deep model is planned to run with three random seeds; their values remain to be chosen.
+Macro-averaged F1 is the planned primary metric, with per-class recall also reported. Keep the test set closed until model choices are frozen. The deep-model suite uses training seeds 42, 123, and 2026.
 
 For future cross-validation, pass **raw descriptors** to `make_model_pipeline(estimator)` in `galaxy_features.py` and put the entire pipeline inside `GridSearchCV`. Each training fold must refit imputation, scaling, and dimensionality reduction to avoid data leakage. Do not use the already transformed full-training exports for inner cross-validation.
 
 The saved full-training preprocessor is for the eventual final training fit and held-out inference. See [the experiment plan](docs/EXPERIMENT_PLAN.md) for details.
 
-## Run locally
+See [deep-model training](docs/DEEP_TRAINING.md) for modules 5–7, including GPU setup, the three-seed suite, and saved artifacts.
 
 Use Python 3.12. Download `Galaxy10_DECals_NoDuplicated.h5` from [Zenodo](https://zenodo.org/records/10845026) and place it under `data/raw/`. Run the following commands from the repository root.
 

@@ -4,7 +4,7 @@
 
 使用 Galaxy10 DECaLS 的十类星系图片，比较基于手工特征（handcrafted features）的传统分类方法、从头训练的卷积神经网络（Convolutional Neural Network, CNN），以及预训练卷积神经网络（pretrained CNNs）和视觉变换器（vision transformers）。
 
-**当前进度：数据准备、探索性数据分析（Exploratory Data Analysis, EDA）和手工特征工程（handcrafted feature engineering）已完成；分类模型训练（classifier training）与性能评价（performance evaluation）尚未开始。** 原始文件有 17,675 张图片，清理后保留 17,655 张。前三个模块的记录、图表和已执行的交互式笔记本（notebooks）已保存在本项目中。
+**当前进度：数据准备、探索性数据分析（Exploratory Data Analysis, EDA）和手工特征工程（handcrafted feature engineering）已完成；深度模型训练流程（deep-model training pipeline）已实现，统一性能评价（unified performance evaluation）待完成。** 原始文件有 17,675 张图片，清理后保留 17,655 张。前三个模块的记录、图表和已执行的交互式笔记本（notebooks）已保存在本项目中。
 
 ## 研究问题
 
@@ -68,13 +68,13 @@
 
 ## 后续评价规则
 
-以宏平均 F1 分数（macro-averaged F1 score）作为主要指标，并报告各类别召回率（per-class recall）。测试集（test set）保留到方案确定后进行最终评价；深度模型（deep models）计划各运行三个随机种子（random seeds），具体取值尚未确定。
+以宏平均 F1 分数（macro-averaged F1 score）作为主要指标，并报告各类别召回率（per-class recall）。测试集（test set）保留到方案确定后进行最终评价；深度模型（deep models）使用三个训练随机种子（random seeds），分别为 42、123 和 2026。
 
 后续交叉验证（cross-validation）必须将**原始描述量（raw descriptors）**传给 `galaxy_features.py` 中的 `make_model_pipeline(estimator)`，并将整条处理流水线（pipeline）放入 `GridSearchCV`。这样，每个训练折（training fold）都会重新学习填补、标准化和降维参数，避免数据泄漏（data leakage）。不要直接用已按完整训练集处理过的特征进行内部交叉验证（inner cross-validation）。
 
 已保存的完整训练集预处理器（preprocessor）用于最终训练及对留出数据的推断（held-out inference）。详细规则见[实验计划](docs/EXPERIMENT_PLAN.md)。
 
-## 在本地运行
+第 5–7 模块的运行环境（runtime environment）、训练入口和产物位置见[深度模型训练说明](docs/DEEP_TRAINING.md)。
 
 使用 Python 3.12。先从 [Zenodo](https://zenodo.org/records/10845026) 下载 `Galaxy10_DECals_NoDuplicated.h5`，放入 `data/raw/`。以下命令均在项目根目录执行。
 

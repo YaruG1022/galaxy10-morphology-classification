@@ -1,6 +1,6 @@
 # Experiment plan
 
-Local data preparation v1 and training-only data-level exploration are complete; see [DATA.md](DATA.md), [the EDA record](eda/README.md), and `metadata/data_v1/summary.json`. Handcrafted feature extraction, training-only preprocessing and handcrafted-feature UMAP are also complete; see [the feature record](features/README.md). Classifier training, pretrained-representation exploration and performance findings remain planned.
+Local data preparation v1 and training-only data-level exploration are complete; see [DATA.md](DATA.md), [the EDA record](eda/README.md), and `metadata/data_v1/summary.json`. Handcrafted feature extraction, training-only preprocessing and handcrafted-feature UMAP are also complete; see [the feature record](features/README.md). [Deep-model training](DEEP_TRAINING.md) is implemented. Pretrained-representation exploration and unified performance evaluation remain planned.
 
 ## Fair comparison and leakage control
 
@@ -31,7 +31,7 @@ Multinomial logistic regression, k-nearest neighbors, a support vector machine w
 - Planned training: AdamW, cosine learning-rate schedule, class-weighted cross-entropy, early stopping on validation macro F1, and mixed precision.
 - Planned augmentation: rotations and horizontal/vertical flips.
 - Scratch normalization uses training-set channel statistics. Pretrained normalization must match the selected pretrained weights; the proposal expects ImageNet normalization.
-- Three distinct training seeds per deep model; values and checkpoint identifiers remain to be chosen.
+- Three training seeds for each deep model: 42, 123, and 2026. Weight variants are recorded in the [deep-model training notes](DEEP_TRAINING.md).
 
 The approximate model-size pairings in the proposal are ResNet-50 versus ViT-Small/16 and ConvNeXt-Tiny versus Swin-Tiny. Size matching alone does not isolate architecture: record differences in pretraining and training recipes when interpreting the comparison.
 
@@ -73,7 +73,6 @@ These are targets, not promised or observed results.
 ## Decisions to resolve before implementation
 
 - Data v1 screening thresholds and match-review decisions are recorded in DATA.md and `metadata/data_v1/`; any changed data decision requires a new version.
-- Three training seeds remain to be selected; the data split seed is already fixed at 42.
 - Model checkpoint names, pretrained-data sources, and software versions.
 - Hyperparameter search spaces, compute budgets, and stopping rules.
 - H1 aggregation and uncertainty reporting.
