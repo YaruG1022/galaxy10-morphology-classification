@@ -7,7 +7,7 @@ import os
 import random
 import subprocess
 import sys
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from hashlib import sha256
 from importlib.metadata import version
 from pathlib import Path
@@ -216,7 +216,7 @@ def train_epoch(model, loader, optimization, normalize, device, limit, epoch):
 
 
 @torch.inference_mode()
-def validate(model, loader, normalize, device, autocast, limit):
+def validation_batches(model, loader, normalize, autocast, limit):
     model.eval()
     rows = []
     labels = []
@@ -230,12 +230,21 @@ def validate(model, loader, normalize, device, autocast, limit):
         rows.append(original_rows)
         if step == steps:
             break
-    logits = torch.cat(logits)
-    targets = torch.cat(labels)
+    return torch.cat(logits), torch.cat(labels), torch.cat(rows).numpy()
+
+
+@torch.inference_mode()
+def validate(model, loader, normalize, device, autocast, limit):
+    logits, targets, rows = validation_batches(model, loader, normalize, autocast, limit)
+    precision_retry = not torch.isfinite(logits).all().item()
+    if precision_retry and device.type == "cuda":
+        print("Non-finite validation logits; repeating validation in float32.", flush=True)
+        logits, targets, rows = validation_batches(model, loader, normalize, nullcontext, limit)
+    if not torch.isfinite(logits).all().item():
+        raise RuntimeError("Validation produced non-finite logits at full precision.")
     loss = nn.functional.cross_entropy(logits, targets.to(device)).item()
     probabilities = logits.softmax(dim=1).cpu().numpy()
     targets = targets.numpy()
-    rows = torch.cat(rows).numpy()
     if not np.isfinite(probabilities).all():
         raise RuntimeError("Validation produced non-finite probabilities.")
     predictions = probabilities.argmax(axis=1)
@@ -250,6 +259,7 @@ def validate(model, loader, normalize, device, autocast, limit):
     f1 = np.divide(2 * precision * recall, denominator, out=np.zeros(NUM_CLASSES), where=denominator > 0)
     metrics = {
         "loss": loss,
+        "validation_float32_retry": precision_retry,
         "accuracy": float(true_positive.sum() / len(targets)),
         "balanced_accuracy": float(recall[support > 0].mean()),
         "macro_f1": float(f1.mean()),
@@ -418,6 +428,7 @@ def run_training(args, data, device):
                 "epoch": epoch,
                 "train_loss": train_loss,
                 "validation_loss": metrics["loss"],
+                "validation_float32_retry": metrics["validation_float32_retry"],
                 "macro_f1": metrics["macro_f1"],
                 "accuracy": metrics["accuracy"],
                 "balanced_accuracy": metrics["balanced_accuracy"],
